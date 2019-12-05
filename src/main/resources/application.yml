@@ -1,0 +1,33 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: root
+    url: jdbc:mysql://127.0.0.1/gdkm_linux?characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+  jpa:
+    show-sql: true
+  jackson:
+    default-property-inclusion: non_null
+  redis:
+    port: 6379
+    host: 127.0.0.1
+#    host: 117.50.11.169
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.gdkm.model
+  configuration:
+    map-underscore-to-camel-case: true
+
+server:
+  context-path: /linux
+  port: 8888
+
+projectUrl:
+  linux: http://localhost:8888/linux
+  imgUrl: D:/linux/img/
+  shipinUrl: D:/linux/shipin/
+  kejianUrl: D:/linux/kejian/
+  img: /img/
+  shipin: /shipin/
+  kejian: /kejian/

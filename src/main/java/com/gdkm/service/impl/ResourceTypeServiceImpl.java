@@ -1,0 +1,55 @@
+package com.gdkm.service.impl;
+
+import com.gdkm.Repository.AdminRepository;
+import com.gdkm.Repository.ResourceTypeRepository;
+import com.gdkm.converter.ResourceTypeToRTDtoConverter;
+import com.gdkm.dto.ResourceTypeDto;
+import com.gdkm.model.Admin;
+import com.gdkm.model.ResourceType;
+import com.gdkm.service.ResourceTypeService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class ResourceTypeServiceImpl implements ResourceTypeService {
+
+    @Autowired
+    private ResourceTypeRepository resourceTypeRepository;
+    @Autowired
+    private AdminRepository adminRepository;
+
+    @Override
+    public void add(ResourceType resourceType) {
+        resourceTypeRepository.save(resourceType);
+    }
+
+    @Override
+    public Page<ResourceTypeDto> list(Pageable pageable, String rtTitle) {
+        Page<ResourceType> resourceTypePage;
+
+        if (!(rtTitle == null || rtTitle.equals(""))) {
+            rtTitle = '%' + rtTitle + '%';
+            resourceTypePage = resourceTypeRepository.findResourceTypesByRtTitleLike(pageable, rtTitle);
+        } else {
+            resourceTypePage = resourceTypeRepository.findAll(pageable);
+        }
+        List<ResourceTypeDto> resourceTypeDtoList = ResourceTypeToRTDtoConverter.convert(resourceTypePage.getContent());
+        for (ResourceTypeDto reourceType : resourceTypeDtoList) {
+            Admin admin = adminRepository.findOne(reourceType.getRtId());
+        }
+
+        return new PageImpl<ResourceTypeDto>(resourceTypeDtoList, pageable, resourceTypePage.getTotalElements());
+    }
+
+    @Override
+    public List<ResourceType> selectResourceType() {
+
+        return resourceTypeRepository.findAll();
+    }
+
+}

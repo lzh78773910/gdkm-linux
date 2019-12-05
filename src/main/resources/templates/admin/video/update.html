@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+
+<head th:replace="admin/common/head :: head"></head>
+
+<body class="skin-blue">
+<!-- header logo: style can be found in header.less 头部 -->
+
+
+<div th:replace="admin/common/headnav ::headnav"></div>
+
+
+<div class="wrapper row-offcanvas row-offcanvas-left">
+    <!-- Left side column. contains the logo and sidebar 左布局-->
+    <aside class="left-side sidebar-offcanvas">
+        <!-- sidebar: style can be found in sidebar.less -->
+        <div th:replace="admin/common/nav :: nav"></div>
+        <!-- /.sidebar -->
+    </aside>
+
+    <!-- Right side column. Contains the navbar and content of the page -->
+    <aside class="right-side">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <h1>
+                管理员管理
+                <small>控制面板</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Home首页</a></li>
+                <li class="active">添加视频</li>
+            </ol>
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <form action="/linux/byadmin/video/updateVideo"  method="post" enctype="multipart/form-data">
+                        <div class="box box-primary">
+                            <div class="box-header">
+                                <h3 class="box-title">添加视频</h3>
+                            </div><!-- /.box-header -->
+                            <!-- form start -->
+
+                            <input  type="hidden" th:value="${video.getVideoId()}" name="videoId">
+
+                            <div class="box-body">
+                                <div class="form-group">
+                                    <label for="videoTitle">标题</label>
+                                    <input  type="text" th:value="${video.getVideoTitle()}" style="width: 500px;"  class="form-control" id="videoTitle" name="videoTitle" placeholder="标题">
+                                </div>
+
+                                <div class="form-group">
+
+                                    <label for="videoText">讲义</label><br>
+
+                                    <textarea th:text="${video.getVideoText()}" id="videoText" style="width: 500px;height: 150px" name="videoText"></textarea>
+                                </div>
+
+                                <div class="form-group" >
+                                    <label for="exampleInputFile1">视频上传</label>
+                                    <input type="file" name="filelShiPin"  id="exampleInputFile1">
+                                    <p class="help-block">点击上传视频，必须上传</p>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="exampleInputFile2">头像上传</label>
+                                    <input type="file" name="file1KeJian"  id="exampleInputFile2">
+                                    <p class="help-block">点击上传课件，可选择不上传</p>
+                                </div>
+                            </div><!-- /.box-body -->
+
+                            <div class="box-footer">
+                                <button type="submit" class="btn btn-primary" >更新</button>
+                            </div>
+                        </div>
+                </div>
+                </form>
+            </div>
+
+        </section><!-- /.content -->
+    </aside><!-- /.right-side -->
+</div><!-- ./wrapper -->
+
+</body>
+</html>

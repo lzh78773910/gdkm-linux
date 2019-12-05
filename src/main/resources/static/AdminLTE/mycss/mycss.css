@@ -1,0 +1,45 @@
+	.img{
+			width: 25px;height: 25px;margin-right: 10px;
+	}
+	.imgs{
+		width: 60px;height: 60px;
+	}
+	.card{
+		background-color: #ffffff;border:#f4f4f4 solid 2px;
+	}
+	#xinxi{
+		font-size: 15px;
+	}
+	#xinxi:before {
+	vertical-align: middle;
+	margin-right: 5px;
+	}  
+	.textma{
+		margin-top: 20px;
+		margin-bottom: 10px;
+	}
+	.textdiv{
+		background-color: whitesmoke;padding-bottom: 20px;margin-top: 10px;
+	}
+	.plaoshi{
+		
+		margin-top: 20px;
+	}
+	.quxiapadding{
+		padding-bottom: 0px;
+	}
+	.beijing{
+		background-color: whitesmoke;
+	}
+	.center{
+		text-align: center;
+	}
+	.padding-0{
+		padding: 0;
+	}
+	.margin-0{
+		margin: 0;
+	}
+	.margin-right-0{
+		margin-right: 0;
+	}
