@@ -10,6 +10,8 @@ import com.gdkm.model.CourseComment;
 import com.gdkm.model.User;
 import com.gdkm.service.CourseCommentService;
 import lombok.val;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -53,5 +55,20 @@ public class CourseCommentServiceImpl implements CourseCommentService {
             courseComment.setAdminContent(adminContent);
         }
         courseCommentReposiyory.save(courseComment);
+    }
+
+    @Override
+    public CourseComment add(Integer grade, String userContent) {
+        Subject subject = SecurityUtils.getSubject();
+        User user=(User)subject.getPrincipal();
+
+        CourseComment courseComment=new CourseComment();
+        courseComment.setUserId(user.getUserId());
+        courseComment.setGrade(grade);
+        courseComment.setUserContent(userContent);
+
+        CourseComment save = courseCommentReposiyory.save(courseComment);
+
+        return save;
     }
 }

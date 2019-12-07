@@ -5,6 +5,8 @@ import com.gdkm.service.UserService;
 import com.gdkm.vo.PageVo;
 import com.gdkm.vo.ResultVO;
 import io.swagger.annotations.ApiOperation;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -52,5 +54,6 @@ public class ByAdminUserController {
         resultVO.setMsg("true");
         return resultVO;
     }
+
 
 }

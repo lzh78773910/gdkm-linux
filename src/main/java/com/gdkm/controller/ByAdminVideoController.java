@@ -179,6 +179,7 @@ public class ByAdminVideoController {
     public ModelAndView updateVideo( @RequestParam(value = "videoId")Integer videoId,
                                  @RequestParam(value = "videoTitle",defaultValue = "标题为空")String videoTitle,
                                  @RequestParam(value ="videoText",defaultValue = "讲义为空")String videoText,
+                                     @RequestParam("videoImg") MultipartFile videoImg,
                                  @RequestParam(value = "file1KeJian",required = false) MultipartFile file1KeJian,
                                  Map map, HttpSession session) throws IOException {
 
@@ -199,7 +200,20 @@ public class ByAdminVideoController {
             file1KeJian.transferTo(new File(contextPath  + fileName));
             video.setCoursewareUrl(projectUrl.getKejian()+fileName);
         }
-
+        if (!videoImg.getOriginalFilename().equals("")) {
+            //处理文件
+            //获取的源文件的名称
+            String fileName = videoImg.getOriginalFilename();
+            //找到文件的后缀
+            int lastIndexOf = fileName.lastIndexOf(".");
+            String houzhui = fileName.substring(lastIndexOf);
+            fileName= UUID.randomUUID().toString()+houzhui;
+            //找到目标目录
+            String contextPath = projectUrl.getImgUrl();
+            //完成上传文件的操作
+            videoImg.transferTo(new File(contextPath  + fileName));
+            video.setVideoImg(projectUrl.getImg()+fileName);
+        }
         videoService.update(video);
         ModelAndView modelAndView=new ModelAndView("redirect:"+projectUrl.getLinux()+"/byadmin/video/update?videoId="+videoId);
         return modelAndView;

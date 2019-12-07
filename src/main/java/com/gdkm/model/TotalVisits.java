@@ -11,15 +11,16 @@ import java.util.Date;
 @Entity
 @DynamicUpdate
 @Data
-public class CourseComment {
+public class TotalVisits {
+
     @Id
     @GeneratedValue
-    private Integer ccId;
-    private Integer userId;
-    private String userContent;
-    private Integer adminId;
-    private String adminContent;
-    private Integer grade;
+    private Integer id;
+    private Integer count;
     private Date createtime;
-    private Date updatatime;
+
+    public TotalVisits(Integer count, Date createtime) {
+        this.count = count;
+        this.createtime = createtime;
+    }
 }

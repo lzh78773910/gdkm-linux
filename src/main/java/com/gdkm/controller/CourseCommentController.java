@@ -2,21 +2,21 @@ package com.gdkm.controller;
 
 import com.gdkm.dto.CourseCommentDto;
 import com.gdkm.model.CourseComment;
+import com.gdkm.model.User;
 import com.gdkm.service.CourseCommentService;
 import com.gdkm.utils.ResultVOUtil;
 import com.gdkm.vo.ResultVO;
 import io.swagger.annotations.Api;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-@Api(value = "前端课程评论", tags = "前端课程评论")
+@Api(value = "前端教学反馈", tags = "前端教学反馈")
 @RestController
 //@RequestMapping("/")
 public class CourseCommentController {
@@ -32,5 +32,11 @@ public class CourseCommentController {
         Page<CourseCommentDto> courseCommentDtoPage = courseCommentService.list(request);
         return ResultVOUtil.success(courseCommentDtoPage);
     }
+
+    @PostMapping("/byuser/comment")
+    public ResultVO add(Integer grade,String userContent){
+        return ResultVOUtil.success(courseCommentService.add(grade, userContent));
+    }
+
 
 }
