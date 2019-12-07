@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" >
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head th:replace="admin/common/head :: head"></head>
 
@@ -41,7 +41,8 @@
                             <h3 class="box-title">教学资源</h3>
                             <div class="box-tools">
                                 <div class="input-group" style="margin-top: 10px">
-                                    <input type="text" name="table_search" class="form-control input-sm pull-right" style="width: 150px;" placeholder="Search"/>
+                                    <input type="text" name="table_search" class="form-control input-sm pull-right"
+                                           style="width: 150px;" placeholder="Search"/>
                                     <div class="input-group-btn">
                                         <button class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
                                     </div>
@@ -49,12 +50,6 @@
                             </div>
                         </div><!-- /.box-header -->
                         <div class="box-body table-responsive">
-                            <form action="/linux/byadmin/resource/addType" method="post">
-                            <div class="col-md-10" style="margin-bottom: 20px">
-                                教学资源类型：<input type="text" name="rtTitle">
-                                <button type="submit" class="btn btn-primary">提交</button>
-                            </div>
-                            </form>
                             <table id="example2" class="table table-bordered table-hover">
                                 <thead>
                                 <tr>
@@ -63,23 +58,62 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-
                                 <tr th:each="resourceTypeDto:${resourceTypeDtoPage.content}">
                                     <td th:text="${resourceTypeDto.rtTitle}"></td>
-                                    <td><a th:href="@{/byadmin/resourceType/(rtId=${resourceTypeDto.rtId})}">修改</a></td>
-                                    <td><a th:href="@{/byadmin/resourceType/(rtId=${resourceTypeDto.rtId})}">删除</a></td>
+                                    <td>
+                                        <a th:href="@{/byadmin/resource/updateResType(rtId=${resourceTypeDto.rtId})}">
+                                            <button class="btn btn-primary btn-lg">
+                                                修改
+                                            </button>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <!-- 按钮触发模态框 -->
+                                        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                                            删除
+                                        </button>
+                                        <!-- 模态框（Modal） -->
+                                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                                            &times;
+                                                        </button>
+                                                        <h4 class="modal-title" id="myModalLabel">
+                                                            删除资源类型
+                                                        </h4>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        如果删除该资源类型，会将该资源类型下的所有资源文件删除，请谨慎操作！！！
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                                                        </button>
+                                                        <a th:href="@{/byadmin/resource/deleteResType(rtId=${resourceTypeDto.rtId})}">
+                                                            <button type="button" class="btn btn-primary">
+                                                                确定删除
+                                                            </button>
+                                                        </a>
+                                                    </div>
+                                                </div><!-- /.modal-content -->
+                                            </div><!-- /.modal -->
+                                        </div>
+                                    </td>
                                 </tr>
-
                                 </tbody>
-
                             </table>
 
                             <div class="box-footer clearfix">
-<!--                                <ul class="pagination pagination-sm no-margin pull-right">-->
-<!--                                    <li th:class="${currentPage le 1} ? 'disabled':''"><a th:href="${currentPage le 1} ?'#':@{/byadmin/user/list(page=${currentPage - 1},size=${size})}">上一页</a></li>-->
-<!--                                    <li><a href="#" th:text="${currentPage+'/'+TotalPage}">0</a></li>-->
-<!--                                    <li th:class="${currentPage ge TotalPage} ? 'disabled':''"><a th:href="${currentPage ge TotalPage} ?'#':@{/byadmin/user/list(page=${currentPage + 1},size=${size})}">下一页</a></li>-->
-<!--                                </ul>-->
+                                <ul class="pagination pagination-sm no-margin pull-right">
+                                    <li th:class="${currentPage le 1} ? 'disabled':''"><a
+                                            th:href="${currentPage le 1} ?'#':@{/byadmin/resource/type(page=${currentPage - 1},size=${size})}">上一页</a>
+                                    </li>
+                                    <li><a href="#" th:text="${currentPage+'/'+TotalPage}">0</a></li>
+                                    <li th:class="${currentPage ge TotalPage} ? 'disabled':''"><a
+                                            th:href="${currentPage ge TotalPage} ?'#':@{/byadmin/resource/type(page=${currentPage + 1},size=${size})}">下一页</a>
+                                    </li>
+                                </ul>
                             </div>
                         </div><!-- /.box-body -->
                     </div><!-- /.box --><!-- /.box -->
@@ -91,7 +125,6 @@
     </aside><!-- /.right-side -->
 </div><!-- ./wrapper -->
 
-
-
+<script th:src="@{/AdminLTE/js/bootstrap.min.js}" type="text/javascript"></script>
 </body>
 </html>

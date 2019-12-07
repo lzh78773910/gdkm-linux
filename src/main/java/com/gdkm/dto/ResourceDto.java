@@ -1,17 +1,12 @@
-package com.gdkm.model;
+package com.gdkm.dto;
 
+import com.gdkm.model.Admin;
 import lombok.Data;
-import org.hibernate.annotations.DynamicUpdate;
 
-import javax.persistence.*;
 import java.util.Date;
 
-@Entity
-@DynamicUpdate
 @Data
-public class Resource {
-    @Id
-    @GeneratedValue
+public class ResourceDto {
     private Integer resId;
     private Integer adminId;
     private Integer viewNum;
@@ -22,4 +17,5 @@ public class Resource {
     private Date updatetime;
     private Integer rtId;
 
+    private Admin admin;
 }

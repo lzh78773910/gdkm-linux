@@ -14,4 +14,10 @@ public interface ResourceTypeService {
     Page<ResourceTypeDto> list(Pageable pageable, String rtTitle);
 
     List<ResourceType> selectResourceType();
+
+    ResourceType oneResourceType(Integer resId);
+
+    ResourceType update(ResourceType resourceType);
+
+    void delete(Integer rtId);
 }

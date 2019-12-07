@@ -13,9 +13,11 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
+@Transactional //必须添加这2个注解
 public class ResourceTypeServiceImpl implements ResourceTypeService {
 
     @Autowired
@@ -50,6 +52,26 @@ public class ResourceTypeServiceImpl implements ResourceTypeService {
     public List<ResourceType> selectResourceType() {
 
         return resourceTypeRepository.findAll();
+
+    }
+
+    @Override
+    public ResourceType oneResourceType(Integer resId) {
+
+        return resourceTypeRepository.findOne(resId);
+
+    }
+
+    @Override
+    public ResourceType update(ResourceType resourceType) {
+
+        return resourceTypeRepository.save(resourceType);
+
+    }
+
+    @Override
+    public void delete(Integer rtId) {
+        resourceTypeRepository.delete(rtId);
     }
 
 }

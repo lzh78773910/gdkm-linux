@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="admin/common/head :: head"></head>
+
+<body class="skin-blue">
+<!-- header logo: style can be found in header.less 头部 -->
+
+
+<div th:replace="admin/common/headnav :: headnav"></div>
+
+
+<div class="wrapper row-offcanvas row-offcanvas-left">
+    <!-- Left side column. contains the logo and sidebar 左布局-->
+    <aside class="left-side sidebar-offcanvas">
+        <!-- sidebar: style can be found in sidebar.less -->
+        <div th:replace="admin/common/nav :: nav"></div>
+        <!-- /.sidebar -->
+    </aside>
+
+    <!-- Right side column. Contains the navbar and content of the page -->
+    <aside class="right-side">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <h1>
+                用户管理
+                <small>控制面板</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Home首页</a></li>
+                <li class="active">教学资源</li>
+            </ol>
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="box">
+                        <div class="box-header">
+                            <h3 class="box-title">教学资源</h3>
+                            <div class="box-tools">
+                                <div class="input-group" style="margin-top: 10px">
+                                    <input type="text" name="table_search" class="form-control input-sm pull-right"
+                                           style="width: 150px;" placeholder="Search"/>
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- /.box-header -->
+                        <form action="/linux/byadmin/resource/addType" method="post">
+                            <div class="box-body table-responsive" style="height: 150px">
+                                <div class="col-md-10" style="margin-bottom: 20px">
+                                    教学资源类型：<input type="text" name="rtTitle" id="rtTitle" required>
+                                    <button type="submit" class="btn btn-primary">提交</button>
+                                </div>
+                            </div><!-- /.box-body -->
+                        </form>
+                    </div><!-- /.box --><!-- /.box -->
+                </div>
+            </div>
+
+
+        </section><!-- /.content -->
+    </aside><!-- /.right-side -->
+</div><!-- ./wrapper -->
+
+
+</body>
+</html>

@@ -1,11 +1,19 @@
 package com.gdkm.Repository;
 
 import com.gdkm.model.Resource;
-import com.gdkm.model.ResourceType;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
-public interface ResourceRepository extends JpaRepository<ResourceType, Integer> {
+public interface ResourceRepository extends JpaRepository<Resource, Integer> {
 
-    void save(Resource resource);
+    Page<Resource> findByResTitleLike(Pageable pageable, String videoTitle);
+
+    @Modifying   //必须添加这2个注解
+    @Query(value = "delete from resource where rt_id = ?1", nativeQuery = true)
+    void deleteResource(@Param(value = "rtId") Integer rtId);
 
 }

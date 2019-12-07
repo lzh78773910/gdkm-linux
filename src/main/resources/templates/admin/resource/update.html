@@ -46,17 +46,20 @@
                             <h3 class="box-title">教学资源上传</h3>
                         </div><!-- /.box-header -->
                         <!-- form start -->
-                        <form action="/linux/byadmin/resource/addFile" method="post" enctype="multipart/form-data">
+                        <form action="/linux/byadmin/resource/updateResource" method="post" enctype="multipart/form-data">
+
+                            <input  type="hidden" th:value="${resource.getResId()}" name="resId">
+
                             <div class="box-body" style="height: 900px">
                                 <div class="form-group">
                                     <label for="resTitle">教学资源标题</label>
                                     <input type="text" style="width: 500px;" class="form-control" id="resTitle"
-                                           name="resTitle" placeholder="标题">
+                                           name="resTitle" th:value="${resource.getResTitle()}" placeholder="标题">
                                 </div>
 
                                 <div id="question-editor">
                                     <textarea class="form-control" rows="3" cols="30" style="display:none;"
-                                              name="resContent" id="resContent" required></textarea>
+                                              name="resContent" id="resContent" th:text="${resource.getResContent()}"></textarea>
                                 </div>
 
                                 <script type="text/javascript">

@@ -8,6 +8,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface ResourceTypeRepository extends JpaRepository<ResourceType,Integer> {
 
     Page<ResourceType> findResourceTypesByRtTitleLike(Pageable pageable, String rtTitle);
-//    Page<ResourceType> findResourceTypesByRtTitleLike(Pageable pageable,String rtTitle);
 
 }
