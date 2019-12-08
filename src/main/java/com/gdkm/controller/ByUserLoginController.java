@@ -4,28 +4,24 @@ import com.gdkm.model.User;
 import com.gdkm.utils.ResultVOUtil;
 import com.gdkm.vo.LoginVo;
 import com.gdkm.vo.ResultVO;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.crypto.hash.Md5Hash;
 import org.apache.shiro.subject.Subject;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-//@RequestMapping("")
+@Api(value = "登录认证与权限", tags = "登录认证与权限")
 public class ByUserLoginController {
 
-    @GetMapping(value = "/byuser/user")
-    public User user()
-    {
-        Subject subject = SecurityUtils.getSubject();
-        User user=(User)subject.getPrincipal();
-        return user;
-    }
-
-
+    @ApiOperation(value = "登入")
     @PostMapping("/login")
     public ResultVO loginPost(@RequestParam("userName")String userName, @RequestParam("userPass")String userPass){
         //根据前端传递过来的name和passowrd生成shrio的UsernamePasswordToken
+        userPass = new Md5Hash(userPass,userName,3).toString();
         UsernamePasswordToken token = new UsernamePasswordToken(userName, userPass);
         //写shiro的认证逻辑
         Subject subject = SecurityUtils.getSubject();
@@ -47,4 +43,13 @@ public class ByUserLoginController {
             return ResultVOUtil.error(400,e.getMessage());
         }
     }
+
+    @ApiOperation(value = "登出")
+    @PostMapping("/logout")
+    public ResultVO logout() {
+        Subject lvSubject=SecurityUtils.getSubject();
+        lvSubject.logout();
+        return ResultVOUtil.success();
+    }
+
 }

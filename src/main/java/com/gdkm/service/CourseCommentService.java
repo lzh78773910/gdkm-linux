@@ -12,4 +12,6 @@ public interface CourseCommentService {
     void update(Integer ccId, String adminContent,Admin admin);
 
     CourseComment add(Integer grade, String userContent);
+
+    public Page<CourseCommentDto> myList(Integer currentPage,Integer pageSize);
 }
