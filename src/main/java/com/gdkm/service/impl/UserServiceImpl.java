@@ -9,13 +9,15 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.stereotype.Service;
 import org.springframework.data.domain.Pageable;
+
+import javax.annotation.Resource;
 import java.util.List;
 
 
 @Service
 public class UserServiceImpl implements UserService {
 
-    @Autowired
+    @Resource
     private UserMapper userMapper;
 
     @Autowired
@@ -34,6 +36,12 @@ public class UserServiceImpl implements UserService {
             findone.setStatus(true);
         }
         repository.save(findone);
+    }
+
+    @Override
+    public User add(User user) {
+        User save = repository.save(user);
+        return save;
     }
 
     public Page<User> userPage(Pageable pageable){

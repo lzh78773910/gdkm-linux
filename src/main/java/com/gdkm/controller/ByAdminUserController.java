@@ -16,7 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 import springfox.documentation.annotations.ApiIgnore;
 
 import java.util.Map;
-
+@ApiIgnore
 @Controller
 @RequestMapping("/byadmin/user")
 public class ByAdminUserController {

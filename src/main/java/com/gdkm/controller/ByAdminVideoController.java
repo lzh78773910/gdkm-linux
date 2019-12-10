@@ -6,6 +6,7 @@ import com.gdkm.dto.VideoDto;
 import com.gdkm.model.Admin;
 import com.gdkm.model.User;
 import com.gdkm.model.Video;
+import com.gdkm.model.VideoItem;
 import com.gdkm.service.VideoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.FileSystemResource;
@@ -28,6 +29,7 @@ import javax.transaction.Transactional;
 import java.io.*;
 import java.net.URLEncoder;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 @ApiIgnore()
@@ -67,9 +69,18 @@ public class ByAdminVideoController {
     }
 
     @GetMapping("/one")
-    public ModelAndView one(@RequestParam(value = "videoId") Integer videoId, Map map) {
+    public ModelAndView one(@RequestParam(value = "videoId") Integer videoId,@RequestParam(value = "viId",required = false) Integer viId, Map map) {
+
         VideoDto videoDto = videoService.one(videoId);
+        VideoItem item = null;
+        if (viId==null){
+            List<VideoItem> videoItem = videoDto.getVideoItem();
+            item = videoItem.get(0);
+        }else{
+           item = videoService.Item(viId);
+        }
         map.put("videoDto", videoDto);
+        map.put("item", item);
         ModelAndView modelAndView = new ModelAndView("admin/video/video", map);
         return modelAndView;
     }
@@ -124,7 +135,7 @@ public class ByAdminVideoController {
             String contextPath = projectUrl.getKejianUrl();
             //完成上传文件的操作
             file1KeJian.transferTo(new File(contextPath  + fileName));
-            video.setCoursewareUrl(projectUrl.getKejian()+fileName);
+            video.setCoursewareUrl(fileName);
         }
 
         if (!videoImg.getOriginalFilename().equals("")) {
@@ -198,7 +209,7 @@ public class ByAdminVideoController {
             String contextPath = projectUrl.getKejianUrl();
             //完成上传文件的操作
             file1KeJian.transferTo(new File(contextPath  + fileName));
-            video.setCoursewareUrl(projectUrl.getKejian()+fileName);
+            video.setCoursewareUrl(fileName);
         }
         if (!videoImg.getOriginalFilename().equals("")) {
             //处理文件

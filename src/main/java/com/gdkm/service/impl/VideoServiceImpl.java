@@ -1,11 +1,13 @@
 package com.gdkm.service.impl;
 
 import com.gdkm.Repository.AdminRepository;
+import com.gdkm.Repository.VideoItemRepository;
 import com.gdkm.Repository.VideoRepository;
 import com.gdkm.converter.VideoTOVideoDtoConverter;
 import com.gdkm.dto.VideoDto;
 import com.gdkm.model.Admin;
 import com.gdkm.model.Video;
+import com.gdkm.model.VideoItem;
 import com.gdkm.service.VideoService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +23,8 @@ public class VideoServiceImpl implements VideoService {
     private VideoRepository videoRepository;
     @Autowired
     private AdminRepository adminRepository;
-
+    @Autowired
+    private VideoItemRepository videoItemRepository;
 
     @Override
     public Page<VideoDto> list(Pageable pageable,String videoTitle) {
@@ -60,9 +63,16 @@ public class VideoServiceImpl implements VideoService {
         Video video = videoRepository.findOne(videoId);
         VideoDto videoDto=new VideoDto();
         BeanUtils.copyProperties(video,videoDto);
+        List<VideoItem> itemList = videoItemRepository.findAll();
+        videoDto.setVideoItem(itemList);
         Admin admin = adminRepository.findOne(video.getAdminId());
         videoDto.setAdmin(admin);
         return videoDto;
+    }
+
+    public VideoItem Item(Integer viId){
+        VideoItem item = videoItemRepository.findOne(viId);
+        return item;
     }
 
     @Override

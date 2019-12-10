@@ -28,6 +28,7 @@ public class User  implements Serializable, AuthCachePrincipal {
     private  String userNickname;
     private  String userNumber;
     private  String userIcon;
+    private  String mail;
     private  Boolean status;
     @JsonSerialize(using = Date2LongSerializer.class)
     private Date createtime;

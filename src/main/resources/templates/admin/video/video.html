@@ -45,141 +45,151 @@
 
         <!-- Main content -->
         <section class="content">
-                <div class="row clearfix">
-                    <div class="col-md-8">
-                        <div class="panel panel-default" style="width: 760px;">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">
-                                    <h3 th:text="${'标题：'+videoDto.getVideoTitle()}">视频标题<small th:text="${'浏览量:'+videoDto.getViewNum()}">浏览量</small></h3>
-                                </h3>
-                            </div>
-                            <div class="panel-body">
-                                <video th:src="@{${videoDto.getVideoUrl()}}" controls="controls" style="width: 730px;height: 450px;"></video>
-                            </div>
-                            <div class="panel-footer">
-                                <h5>视频讲义</h5>
-
-                            </div>
-                            <div class="panel-body">
-                                <p th:text="${videoDto.getVideoText()}"></p>
-                            </div>
+            <div class="row clearfix">
+                <div class="col-md-8" >
+                    <div class="panel panel-default" style="width: 100%;">
+                        <div class="panel-heading">
+                            <h3 class="panel-title" >
+                                <h3 th:text="${'标题：'+videoDto.getVideoTitle()}">视频标题<small th:text="${'浏览量:'+videoDto.getViewNum()}">浏览量</small></h3>
+                            </h3>
                         </div>
-
-                        <div class="panel panel-default" style="width: 760px;">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">
-                                    <h5>视频评论</h5>
-                                </h3>
-                            </div>
-                            <div class="panel-body">
-
-                                <ul class="list-unstyled">
-                                    <li>
-                                        <div >
-                                            <h5>
-                                                <img alt="140x140" src="http://cdn.ibootstrap.cn/lorempixel.com/140/140/default.jpg" class="img-circle imgs"/>
-                                                <small>xxx</small><small>--时间:2019/10/20</small>
-                                            </h5>
-                                        </div>
-                                        <div>
-                                            <h4>
-                                                测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试
-                                            </h4>
-                                            <h5>
-                                                <button type="button" class="btn btn-link btn-xs" onclick="show(this)">查看回复</button>
-                                            </h5>
-                                        </div>
-                                        <hr />
-                                        <ul style="display: none;">
-                                            <li>
-                                                <div >
-                                                    <h5>
-                                                        <img alt="140x140" src="http://cdn.ibootstrap.cn/lorempixel.com/140/140/default.jpg" class="img-circle img"/>
-                                                        <small>xxx</small><small>--时间:2019/10/20</small>
-                                                    </h5>
-                                                </div>
-                                                <div>
-                                                    <h5>
-                                                        测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试
-                                                    </h5>
-                                                </div>
-                                                <hr />
-
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <div >
-                                            <h5>
-                                                <img alt="140x140" src="http://cdn.ibootstrap.cn/lorempixel.com/140/140/default.jpg" class="img-circle img"/>
-                                                <small>xxx</small><small>--时间:2019/10/20</small>
-                                            </h5>
-                                        </div>
-                                        <div style="">
-                                            <h4>
-                                                dsadsadsa
-                                            </h4>
-                                            <h5>
-                                                <button type="button" class="btn btn-link btn-xs" onclick="show(this)">查看回复</button>
-                                            </h5>
-                                        </div>
-                                        <hr />
-                                    </li>
-
-                                </ul>
-
-
-
-
-                                <ul class="pagination pagination-sm">
-                                    <li>
-                                        <a href="#">下一页</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">1</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="#">上一页</a>
-                                    </li>
-                                </ul>
-                            </div>
+                        <div class="panel-body" >
+                            <video th:src="@{${item.getViUrl()}}" controls="controls" style="width: 100%;height: 450px;"></video>
                         </div>
+                        <div class="panel-footer">
+                            <h5>视频讲义</h5>
 
-
-
+                        </div>
+                        <div class="panel-body">
+                            <p th:text="${videoDto.getVideoText()}"></p>
+                        </div>
                     </div>
-                    <div class="col-md-3" style="margin-left: 20px;">
-                        <div class="row clearfix card" style="margin-bottom: 20px;">
-                            <div class="col-md-4 column ">
-                                <img alt="140x140" src="http://cdn.ibootstrap.cn/lorempixel.com/140/140/default.jpg" class="img-circle" style="text-align: center; width: 60px;height: 60px;margin-top: 20px;"/>
-                            </div>
-                            <div class="col-md-6" style="margin-top: 20px;">
-                                <dl>
-                                    <dt>
-                                        作者
-                                    </dt>
-                                    <dd>
-                                        <p th:text="${videoDto.getAdmin().getAdminName()}"></p>
-                                    </dd>
-                                    <dt>
-                                        时间
-                                    </dt>
-                                    <dd>
-                                        <p th:text="${videoDto.getAdmin().getCreatetime()}"></p>
-                                    </dd>
-                                </dl>
-                            </div>
+
+                    <div class="panel panel-default" style="width: 100%;">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">
+                                <h5>视频评论</h5>
+                            </h3>
                         </div>
-                        <div class="row clearfix">
-                            <div class="col-md-12 column card">
-                                <div th:style="${videoDto.getCoursewareUrl()==null?'display: none':''}">
-                                    <a th:href="@{/byadmin/video/download(coursewareUrl=${videoDto.getCoursewareUrl()})}"><button type="button" class="btn btn-lg btn-info">本课程视频课件下载</button></a>
-                                </div>
+                        <div class="panel-body">
+
+                            <ul class="list-unstyled">
+                                <li>
+                                    <div >
+                                        <h5>
+                                            <img alt="140x140" src="http://cdn.ibootstrap.cn/lorempixel.com/140/140/default.jpg" class="img-circle imgs"/>
+                                            <small>xxx</small><small>--时间:2019/10/20</small>
+                                        </h5>
+                                    </div>
+                                    <div>
+                                        <h4>
+                                            测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试
+                                        </h4>
+                                        <h5>
+                                            <button type="button" class="btn btn-link btn-xs" onclick="show(this)">查看回复</button>
+                                        </h5>
+                                    </div>
+                                    <hr />
+                                    <ul style="display: none;">
+                                        <li>
+                                            <div >
+                                                <h5>
+                                                    <img alt="140x140" src="http://cdn.ibootstrap.cn/lorempixel.com/140/140/default.jpg" class="img-circle img"/>
+                                                    <small>xxx</small><small>--时间:2019/10/20</small>
+                                                </h5>
+                                            </div>
+                                            <div>
+                                                <h5>
+                                                    测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试	测试
+                                                </h5>
+                                            </div>
+                                            <hr />
+
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <div >
+                                        <h5>
+                                            <img alt="140x140" src="http://cdn.ibootstrap.cn/lorempixel.com/140/140/default.jpg" class="img-circle img"/>
+                                            <small>xxx</small><small>--时间:2019/10/20</small>
+                                        </h5>
+                                    </div>
+                                    <div style="">
+                                        <h4>
+                                            dsadsadsa
+                                        </h4>
+                                        <h5>
+                                            <button type="button" class="btn btn-link btn-xs" onclick="show(this)">查看回复</button>
+                                        </h5>
+                                    </div>
+                                    <hr />
+                                </li>
+
+                            </ul>
+
+
+
+
+                            <ul class="pagination pagination-sm">
+                                <li>
+                                    <a href="#">下一页</a>
+                                </li>
+                                <li>
+                                    <a href="#">1</a>
+                                </li>
+
+                                <li>
+                                    <a href="#">上一页</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3" style="margin-left: 20px;">
+
+                    <div class="row clearfix card" style="margin-bottom: 20px; padding: 10px 10px">
+                        <h5>视频列表</h5>
+                        <ol>
+                            <li th:each="item:${videoDto.videoItem}">
+                                <a th:href="@{/byadmin/video/one(videoId=${item.videoId},viId=${item.getViId()})}"
+                                th:text="${item.viTitle}"></a>
+                            </li>
+                        </ol>
+                    </div>
+
+
+
+                    <div class="row clearfix card" style="margin-bottom: 20px;">
+                        <div class="col-md-4 column ">
+                            <img alt="140x140" src="http://cdn.ibootstrap.cn/lorempixel.com/140/140/default.jpg" class="img-circle" style="text-align: center; width: 60px;height: 60px;margin-top: 20px;"/>
+                        </div>
+                        <div class="col-md-6" style="margin-top: 20px;">
+                            <dl>
+                                <dt>
+                                    作者
+                                </dt>
+                                <dd>
+                                    <p th:text="${videoDto.getAdmin().getAdminName()}"></p>
+                                </dd>
+                                <dt>
+                                    时间
+                                </dt>
+                                <dd>
+                                    <p th:text="${videoDto.getAdmin().getCreatetime()}"></p>
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+                    <div class="row clearfix">
+                        <div class="col-md-12 column card" th:style="${videoDto.getCoursewareUrl()==null?'display: none':''}">
+                            <div>
+                                <a th:href="@{/byadmin/video/download(coursewareUrl=${videoDto.getCoursewareUrl()})}"><button type="button" class="btn btn-lg btn-info">本课程视频课件下载</button></a>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
         </section><!-- /.content -->
     </aside><!-- /.right-side -->
 </div><!-- ./wrapper -->

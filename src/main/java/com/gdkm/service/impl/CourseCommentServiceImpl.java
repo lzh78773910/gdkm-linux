@@ -62,6 +62,16 @@ public class CourseCommentServiceImpl implements CourseCommentService {
         return new PageImpl<CourseCommentDto>(convert, pageable, courseCommentPage.getTotalElements());
     }
 
+    @Override
+    public void delete(Integer commentId) {
+        Subject subject = SecurityUtils.getSubject();
+        User user=(User)subject.getPrincipal();
+        CourseComment courseComment = courseCommentReposiyory.findOne(commentId);
+        if(courseComment.getUserId()==user.getUserId()){
+            courseCommentReposiyory.delete(commentId);
+        }
+    }
+
 
     @Override
     public void update(Integer ccId, String adminContent,Admin admin) {
