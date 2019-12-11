@@ -14,4 +14,6 @@ public interface CourseCommentService {
     CourseComment add(Integer grade, String userContent);
 
     public Page<CourseCommentDto> myList(Integer currentPage,Integer pageSize);
+
+    void  delete(Integer commentId);
 }

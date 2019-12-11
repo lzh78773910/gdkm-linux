@@ -31,7 +31,7 @@ public class CourseCommentController {
      * @return
      */
     @ApiOperation(value = "分页反馈")
-    @GetMapping("/commentList/{currentPage}/{pageSize}")
+    @GetMapping("/comment/{currentPage}/{pageSize}")
     public ResultVO commentList(@PathVariable(value = "currentPage",required = false) Integer currentPage,
                                 @PathVariable(value = "pageSize",required = false) Integer pageSize){
         //按时间排序
@@ -60,11 +60,19 @@ public class CourseCommentController {
      * @return
      */
     @ApiOperation(value = "我的分页反馈")
-    @GetMapping("/byuser/commentList/{currentPage}/{pageSize}")
+    @GetMapping("/byuser/comment/{currentPage}/{pageSize}")
     public ResultVO myCommentList(@PathVariable(value = "currentPage",required = false) Integer currentPage,
                                 @PathVariable(value = "pageSize",required = false) Integer pageSize){
         Page<CourseCommentDto> courseCommentDtos = courseCommentService.myList(currentPage, pageSize);
         return ResultVOUtil.success(courseCommentDtos);
     }
+
+    @ApiOperation(value = "删除反馈")
+    @DeleteMapping("/byuser/comment/{id}")
+    public ResultVO delete(@PathVariable(value = "id",required = true) Integer commentId){
+        courseCommentService.delete(commentId);
+        return ResultVOUtil.success();
+    }
+
 
 }

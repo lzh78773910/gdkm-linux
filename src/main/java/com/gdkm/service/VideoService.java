@@ -2,6 +2,7 @@ package com.gdkm.service;
 
 import com.gdkm.dto.VideoDto;
 import com.gdkm.model.Video;
+import com.gdkm.model.VideoItem;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -18,4 +19,6 @@ public interface VideoService {
     VideoDto one(Integer videoId);
 
     Video onevideo(Integer videoId);
+
+    VideoItem Item(Integer viId);
 }

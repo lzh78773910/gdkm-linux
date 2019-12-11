@@ -22,4 +22,8 @@ public interface UserService {
      * @param userId
      */
     void status(Integer userId);
+    /**
+     * 添加用户
+     */
+    User add(User user);
 }
