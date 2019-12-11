@@ -25,11 +25,11 @@ server:
 
 projectUrl:
   linux: http://localhost:8888/linux
-  imgUrl: D:/linux/img/
-  #imgUrl:  /Users/eddie/desktop/resource/
+#  imgUrl: D:/linux/img/
+  imgUrl:  /Users/eddie/desktop/resource/
   shipinUrl: D:/linux/shipin/
-  kejianUrl: D:/linux/kejian/
-   #  kejianUrl: /Users/eddie/desktop/resource/
+#  kejianUrl: D:/linux/kejian/
+  kejianUrl: /Users/eddie/desktop/resource/
   img: /img/
   shipin: /shipin/
   kejian: /kejian/
