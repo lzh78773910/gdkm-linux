@@ -5,6 +5,9 @@ import com.gdkm.model.Video;
 import com.gdkm.model.VideoItem;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
 
 public interface VideoService {
 
@@ -21,4 +24,6 @@ public interface VideoService {
     Video onevideo(Integer videoId);
 
     VideoItem Item(Integer viId);
+
+    void additem(Integer videoId,String title, MultipartFile file) throws IOException;
 }

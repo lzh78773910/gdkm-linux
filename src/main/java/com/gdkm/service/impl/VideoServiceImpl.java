@@ -3,6 +3,7 @@ package com.gdkm.service.impl;
 import com.gdkm.Repository.AdminRepository;
 import com.gdkm.Repository.VideoItemRepository;
 import com.gdkm.Repository.VideoRepository;
+import com.gdkm.config.projectUrl;
 import com.gdkm.converter.VideoTOVideoDtoConverter;
 import com.gdkm.dto.VideoDto;
 import com.gdkm.model.Admin;
@@ -13,8 +14,13 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
+import java.util.UUID;
+
 @Service
 public class VideoServiceImpl implements VideoService {
 
@@ -25,7 +31,8 @@ public class VideoServiceImpl implements VideoService {
     private AdminRepository adminRepository;
     @Autowired
     private VideoItemRepository videoItemRepository;
-
+    @Autowired
+    public com.gdkm.config.projectUrl projectUrl;
     @Override
     public Page<VideoDto> list(Pageable pageable,String videoTitle) {
         Page<Video> videoPage;
@@ -73,6 +80,28 @@ public class VideoServiceImpl implements VideoService {
     public VideoItem Item(Integer viId){
         VideoItem item = videoItemRepository.findOne(viId);
         return item;
+    }
+
+    @Override
+    public void additem(Integer videoId,String title, MultipartFile file) throws IOException {
+        VideoItem item = new VideoItem();
+        item.setVideoId(videoId);
+        item.setViTitle(title);
+        if (!file.getOriginalFilename().equals("")) {
+            //处理文件
+            //获取的源文件的名称
+            String fileName = file.getOriginalFilename();
+            //找到文件的后缀
+            int lastIndexOf = fileName.lastIndexOf(".");
+            String houzhui = fileName.substring(lastIndexOf);
+            fileName= UUID.randomUUID().toString()+houzhui;
+            //找到目标目录
+            String contextPath = projectUrl.getShipinUrl();
+            //完成上传文件的操作
+            file.transferTo(new File(contextPath  + fileName));
+            item.setViUrl(projectUrl.getShipin()+fileName);
+        }
+        videoItemRepository.save(item);
     }
 
     @Override

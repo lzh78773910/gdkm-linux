@@ -43,7 +43,6 @@ public class AdminLogin {
     public void doVerify(){
         ServletRequestAttributes attributes=(ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request=attributes.getRequest();
-
         HttpSession session = request.getSession();
         Admin admin = (Admin) session.getAttribute("admin");
         if (admin==null){

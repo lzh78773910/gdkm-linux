@@ -2,6 +2,9 @@
 <html xmlns:th="http://www.thymeleaf.org" >
 
 <head th:replace="admin/common/head :: head"></head>
+<!--文件上传组件样式-->
+<link th:href="@{/AdminLTE/css/fileinput.min.css}" rel="stylesheet" type="text/css"/>
+
 <style>
     .img{
         width: 25px;height: 25px;margin-right: 10px;
@@ -143,6 +146,17 @@
                                     <a href="#">上一页</a>
                                 </li>
                             </ul>
+                            <hr>
+                            上传视频
+                            <hr>
+                            <form action="/linux/byadmin/video/additem" method="post" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <input type="hidden" th:value="${videoDto.videoId}" name="videoId">
+                                标题:<input type="text" name="title"/><br>
+                                视频：<input type="file" name="file"><br>
+                                <button type="submit" class="btn btn-primary" style="margin-left: 30px">提交</button>
+                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -193,7 +207,9 @@
         </section><!-- /.content -->
     </aside><!-- /.right-side -->
 </div><!-- ./wrapper -->
-
+<!--文件上传样式-->
+<script th:src="@{/AdminLTE/js/fileinput.min.js}" type="text/javascript"></script>
+<script th:src="@{/AdminLTE/js/fileinput_locale_zh.js}" type="text/javascript"></script>0
 <script th:inline="javascript" type="text/javascript">
     function show(obj){
         var ul = $(obj).parents("li").children("ul");

@@ -229,5 +229,16 @@ public class ByAdminVideoController {
         ModelAndView modelAndView=new ModelAndView("redirect:"+projectUrl.getLinux()+"/byadmin/video/update?videoId="+videoId);
         return modelAndView;
     }
+
+
+    @PostMapping("/additem")
+    public ModelAndView additem( @RequestParam(value = "videoId")Integer videoId,
+                                 @RequestParam(value = "title")String title,
+                                     @RequestParam(value = "file",required = true) MultipartFile file,
+                                     Map map) throws IOException {
+        videoService.additem(videoId,title,file);
+        ModelAndView modelAndView=new ModelAndView("redirect:"+projectUrl.getLinux()+"/byadmin/video/one?videoId="+videoId);
+        return modelAndView;
+    }
 }
 
