@@ -5,10 +5,7 @@ import com.gdkm.enums.ResultEnum;
 import com.gdkm.exception.LinuxException;
 import com.gdkm.model.User;
 import com.gdkm.service.UserService;
-import com.gdkm.utils.CookieUtil;
-import com.gdkm.utils.KeyUtil;
-import com.gdkm.utils.ResultVOUtil;
-import com.gdkm.utils.StringUtil;
+import com.gdkm.utils.*;
 import com.gdkm.vo.ResultVO;
 import com.gdkm.vo.from.RegisterVo;
 import io.swagger.annotations.Api;
@@ -36,7 +33,8 @@ import java.io.IOException;
 @Api(value = "用户表操作", tags = "用户表操作")
 @RestController
 public class UserController {
-
+    @Autowired
+    private UCloudProvider uCloudProvider;
 
     @Autowired
     private UserService userService;
@@ -125,16 +123,16 @@ public class UserController {
      * 修改头像
      */
     @ApiOperation(value = "修改头像")
-    @PostMapping("/user/{userId}/icon")
-    public ResultVO icon(@PathVariable(value = "userId")Integer userId,MultipartFile icon) throws IOException {
-        String userIcon = userService.userIcon(userId, icon);
+    @PostMapping("/byuser/user/icon")
+    public ResultVO icon(MultipartFile icon) throws IOException {
+        String userIcon = userService.userIcon(icon);
         return ResultVOUtil.success(userIcon);
     }
     /**
      * 修改密码
      */
     @ApiOperation(value = "修改密码")
-    @PutMapping("/user/pass")
+    @PutMapping("/byuser/user/pass")
     public ResultVO changePassword(String oldpass,String pass)  {
         try { userService.changePassword(oldpass,pass); }catch (Exception e){ return ResultVOUtil.error(e.getMessage()); }
         return ResultVOUtil.success();
@@ -143,7 +141,7 @@ public class UserController {
      * 修改资料 （学号,昵称）
      */
     @ApiOperation(value = "修改资料 （学号,昵称）")
-    @PutMapping("/user")
+    @PutMapping("/byuser/user")
     public ResultVO updateUser(String userNumber,String userNickname)  {
         User user=new User();
         user.setUserNumber(userNumber);
@@ -151,4 +149,19 @@ public class UserController {
         User result = userService.updateUser(user);
         return ResultVOUtil.success(result);
     }
+
+    @ApiOperation(value = "测试上传")
+    @PostMapping("/user/icon2")
+    public ResultVO icon1(MultipartFile file) throws IOException {
+        String fileName = uCloudProvider.upload(file.getInputStream(), file.getContentType(), file.getOriginalFilename(),null);
+        return ResultVOUtil.success(fileName);
+    }
+    @ApiOperation(value = "测试下载")
+    @GetMapping("/user/icon3/xiazai")
+    public ResultVO icon3() {
+        String url="http://gdkmlzh.cn-gd.ufileos.com/a%2Fb%2Fc.jpg?UCloudPublicKey=7XUUrIZu_COBbktItgfRT0tYkbMP_GSP-OWjXsTe&Signature=uT%2FB5hLW7Ax9jCEG32kdzWkVREg%3D&Expires=1576472148";
+         uCloudProvider.getStream(url);
+        return ResultVOUtil.success();
+    }
+
 }

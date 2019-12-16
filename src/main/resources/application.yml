@@ -45,3 +45,7 @@ projectUrl:
   img: /img/
   shipin: /shipin/
   kejian: /kejian/
+
+  imgUcloud: img
+  shipinUcloud: shipin
+  kejianUcloud: kejian

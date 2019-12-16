@@ -8,6 +8,7 @@ import com.gdkm.exception.LinuxException;
 import com.gdkm.model.User;
 import com.gdkm.service.UserService;
 import com.gdkm.utils.CookieUtil;
+import com.gdkm.utils.UCloudProvider;
 import com.gdkm.vo.from.RegisterVo;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.SecurityUtils;
@@ -36,6 +37,10 @@ import java.util.UUID;
 @Service
 @Slf4j
 public class UserServiceImpl implements UserService {
+
+
+    @Autowired
+    private UCloudProvider uCloudProvider;
 
     @Resource
     private UserMapper userMapper;
@@ -100,23 +105,14 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public String userIcon(Integer userId, MultipartFile icon) throws IOException {
-        User user = repository.findOne(userId);
-        if (!icon.getOriginalFilename().equals("")) {
-            //处理文件
-            //获取的源文件的名称
-            String fileName = icon.getOriginalFilename();
-            //找到文件的后缀
-            int lastIndexOf = fileName.lastIndexOf(".");
-            String houzhui = fileName.substring(lastIndexOf);
-            fileName= UUID.randomUUID().toString()+houzhui;
-            //找到目标目录
-            String contextPath = projectUrl.getImgUrl();
-            //完成上传文件的操作
-            icon.transferTo(new File(contextPath  + fileName));
-            user.setUserIcon(projectUrl.getImg()+fileName);
-        }
-        return user.getUserIcon();
+    public String userIcon(MultipartFile icon) throws IOException {
+        Subject subject = SecurityUtils.getSubject();
+        User user= (User)subject.getPrincipal();
+        String fileName = uCloudProvider.upload(icon.getInputStream(), icon.getContentType(), icon.getOriginalFilename(), projectUrl
+        .getImgUcloud());
+        user.setUserIcon(fileName);
+        User save = repository.save(user);
+        return save.getUserIcon();
     }
 
     @Override

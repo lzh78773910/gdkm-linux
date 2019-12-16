@@ -36,7 +36,7 @@ public interface UserService {
     /**
      * 修改头像
      */
-    String userIcon(Integer userId,MultipartFile icon) throws IOException;
+    String userIcon(MultipartFile icon) throws IOException;
     /**
      * 修改用户资料
      */
