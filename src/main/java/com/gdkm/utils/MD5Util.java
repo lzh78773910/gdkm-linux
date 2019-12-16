@@ -1,8 +1,6 @@
 package com.gdkm.utils;
 
 
-import org.apache.shiro.crypto.hash.Md5Hash;
-
 import java.security.MessageDigest;
 
 public class MD5Util {
@@ -52,8 +50,5 @@ public class MD5Util {
     public static void main(String args[]) {  
 	    String s = new String("admin");
 	    System.out.println(digest(s));
-
-        String password = new Md5Hash("a123457","78773910",3).toString();
-        System.out.println("加盐加密"+password);
 	}  
 } 

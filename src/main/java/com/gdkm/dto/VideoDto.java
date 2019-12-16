@@ -1,11 +1,9 @@
 package com.gdkm.dto;
 
 import com.gdkm.model.Admin;
-import com.gdkm.model.VideoItem;
 import lombok.Data;
 
 import java.util.Date;
-import java.util.List;
 
 @Data
 public class VideoDto {
@@ -20,8 +18,6 @@ public class VideoDto {
     private String videoImg;
     private Date createtime;
     private Date updatatime;
-
-    private List<VideoItem> videoItem;
 
     private Admin admin;
 

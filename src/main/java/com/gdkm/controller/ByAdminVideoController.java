@@ -6,7 +6,6 @@ import com.gdkm.dto.VideoDto;
 import com.gdkm.model.Admin;
 import com.gdkm.model.User;
 import com.gdkm.model.Video;
-import com.gdkm.model.VideoItem;
 import com.gdkm.service.VideoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.FileSystemResource;
@@ -29,10 +28,9 @@ import javax.transaction.Transactional;
 import java.io.*;
 import java.net.URLEncoder;
 import java.time.LocalDate;
-import java.util.List;
 import java.util.Map;
 import java.util.UUID;
-//@ApiIgnore()
+@ApiIgnore()
 @Controller
 @RequestMapping("/byadmin/video")
 public class ByAdminVideoController {
@@ -50,6 +48,8 @@ public class ByAdminVideoController {
             @RequestParam(value = "videoTitle",required = false) String videoTitle,
             @RequestParam(value = "page", defaultValue = "1") Integer page,
             @RequestParam(value = "size", defaultValue = "10") Integer size, Map map) {
+
+
 
         Sort sort = new Sort(Sort.Direction.DESC,"createtime");
         PageRequest request = new PageRequest(page - 1, size,sort);
@@ -69,18 +69,9 @@ public class ByAdminVideoController {
     }
 
     @GetMapping("/one")
-    public ModelAndView one(@RequestParam(value = "videoId") Integer videoId,@RequestParam(value = "viId",required = false) Integer viId, Map map) {
-
+    public ModelAndView one(@RequestParam(value = "videoId") Integer videoId, Map map) {
         VideoDto videoDto = videoService.one(videoId);
-        VideoItem item = null;
-        if (viId==null){
-            List<VideoItem> videoItem = videoDto.getVideoItem();
-            item = videoItem.get(0);
-        }else{
-           item = videoService.Item(viId);
-        }
         map.put("videoDto", videoDto);
-        map.put("item", item);
         ModelAndView modelAndView = new ModelAndView("admin/video/video", map);
         return modelAndView;
     }
@@ -114,6 +105,7 @@ public class ByAdminVideoController {
     @Transactional
     public ModelAndView addVideo(@RequestParam(value = "videoTitle",defaultValue = "标题为空")String videoTitle,
                                  @RequestParam(value ="videoText",defaultValue = "讲义为空")String videoText,
+                                 @RequestParam("filelShiPin") MultipartFile filelShiPin,
                                  @RequestParam("videoImg") MultipartFile videoImg,
                                  @RequestParam(value = "file1KeJian",required = false) MultipartFile file1KeJian,
                                  Map map, HttpSession session) throws IOException {
@@ -123,6 +115,20 @@ public class ByAdminVideoController {
         video.setVideoTitle(videoTitle);
         video.setVideoText(videoText);
         video.setViewNum(0);
+        if (!filelShiPin.getOriginalFilename().equals("")) {
+            //处理文件
+            //获取的源文件的名称
+            String fileName = filelShiPin.getOriginalFilename();
+            //找到文件的后缀
+            int lastIndexOf = fileName.lastIndexOf(".");
+            String houzhui = fileName.substring(lastIndexOf);
+            fileName= UUID.randomUUID().toString()+houzhui;
+                //找到目标目录
+             String contextPath = projectUrl.getShipinUrl();
+                //完成上传文件的操作
+            filelShiPin.transferTo(new File(contextPath  + fileName));
+            video.setVideoUrl(projectUrl.getShipin()+fileName);
+    }
         if (!file1KeJian.getOriginalFilename().equals("")) {
             //处理文件
             //获取的源文件的名称
@@ -150,7 +156,7 @@ public class ByAdminVideoController {
             String contextPath = projectUrl.getImgUrl();
             //完成上传文件的操作
             videoImg.transferTo(new File(contextPath  + fileName));
-            video.setVideoImg(projectUrl.getImg()+fileName);
+            video.setCoursewareUrl(projectUrl.getImg()+fileName);
         }
 
 
@@ -190,13 +196,27 @@ public class ByAdminVideoController {
     public ModelAndView updateVideo( @RequestParam(value = "videoId")Integer videoId,
                                  @RequestParam(value = "videoTitle",defaultValue = "标题为空")String videoTitle,
                                  @RequestParam(value ="videoText",defaultValue = "讲义为空")String videoText,
-                                     @RequestParam("videoImg") MultipartFile videoImg,
+                                 @RequestParam(value ="filelShiPin",required = false) MultipartFile filelShiPin,
                                  @RequestParam(value = "file1KeJian",required = false) MultipartFile file1KeJian,
                                  Map map, HttpSession session) throws IOException {
 
         Video video = videoService.onevideo(videoId);
         video.setVideoTitle(videoTitle);
         video.setVideoText(videoText);
+        if (!filelShiPin.getOriginalFilename().equals("")) {
+            //处理文件
+            //获取的源文件的名称
+            String fileName = filelShiPin.getOriginalFilename();
+            //找到文件的后缀
+            int lastIndexOf = fileName.lastIndexOf(".");
+            String houzhui = fileName.substring(lastIndexOf);
+            fileName= UUID.randomUUID().toString()+houzhui;
+            //找到目标目录
+            String contextPath = projectUrl.getShipinUrl();
+            //完成上传文件的操作
+            filelShiPin.transferTo(new File(contextPath  + fileName));
+            video.setVideoUrl(projectUrl.getShipin()+fileName);
+        }
         if (!file1KeJian.getOriginalFilename().equals("")) {
             //处理文件
             //获取的源文件的名称
@@ -211,33 +231,9 @@ public class ByAdminVideoController {
             file1KeJian.transferTo(new File(contextPath  + fileName));
             video.setCoursewareUrl(fileName);
         }
-        if (!videoImg.getOriginalFilename().equals("")) {
-            //处理文件
-            //获取的源文件的名称
-            String fileName = videoImg.getOriginalFilename();
-            //找到文件的后缀
-            int lastIndexOf = fileName.lastIndexOf(".");
-            String houzhui = fileName.substring(lastIndexOf);
-            fileName= UUID.randomUUID().toString()+houzhui;
-            //找到目标目录
-            String contextPath = projectUrl.getImgUrl();
-            //完成上传文件的操作
-            videoImg.transferTo(new File(contextPath  + fileName));
-            video.setVideoImg(projectUrl.getImg()+fileName);
-        }
+
         videoService.update(video);
         ModelAndView modelAndView=new ModelAndView("redirect:"+projectUrl.getLinux()+"/byadmin/video/update?videoId="+videoId);
-        return modelAndView;
-    }
-
-
-    @PostMapping("/additem")
-    public ModelAndView additem( @RequestParam(value = "videoId")Integer videoId,
-                                 @RequestParam(value = "title")String title,
-                                     @RequestParam(value = "file",required = true) MultipartFile file,
-                                     Map map) throws IOException {
-        videoService.additem(videoId,title,file);
-        ModelAndView modelAndView=new ModelAndView("redirect:"+projectUrl.getLinux()+"/byadmin/video/one?videoId="+videoId);
         return modelAndView;
     }
 }

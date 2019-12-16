@@ -11,7 +11,7 @@ public class LinuxException extends RuntimeException {
         this.code = resultEnum.getCode();
     }
 
-    public LinuxException(String message) {
+    public LinuxException(Integer code, String message) {
         super(message);
         this.code = code;
     }
