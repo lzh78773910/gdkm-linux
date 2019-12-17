@@ -1,15 +1,19 @@
 package com.gdkm.service.impl;
 
 import com.gdkm.Repository.QuestionRepository;
+import com.gdkm.converter.QuestionToQuestionDtoConverter;
+import com.gdkm.dto.QuestionDto;
 import com.gdkm.model.Question;
+import com.gdkm.model.User;
 import com.gdkm.service.QuestionService;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Service
 public class QuestionServiceImpl implements QuestionService {
@@ -26,8 +30,52 @@ public class QuestionServiceImpl implements QuestionService {
     @Override
     @Transactional(readOnly = true)
     public Page<Question> getPageSort(Integer page, Integer size) {
-        Sort sort = new Sort(Sort.Direction.DESC,"createtime");
-        Pageable pageable = new PageRequest(page - 1,size,sort);
+        Sort sort = new Sort(Sort.Direction.DESC, "createtime");
+        Pageable pageable = new PageRequest(page - 1, size, sort);
         return questionRepository.findAll(pageable);
     }
+
+    @Override
+    public List<Question> getAll() {
+        return questionRepository.findAll();
+    }
+
+    //根据ID删除问题
+    @Override
+    public void deleteQuestionById(Integer qId) {
+        questionRepository.delete(qId);
+    }
+
+    @Override
+    public Page<QuestionDto> list(PageRequest pageable, String title) {
+        Page<Question> questionPage;
+        if (!(title == null || title.equals(""))) {
+            title = '%' + title + '%';
+            questionPage = questionRepository.findByTitleLike(pageable, title);
+        } else {
+            questionPage = questionRepository.findAll(pageable);
+        }
+        List<QuestionDto> questionDtoList = QuestionToQuestionDtoConverter.convert(questionPage.getContent());
+        return new PageImpl<QuestionDto>(questionDtoList, pageable, questionPage.getTotalElements());
+    }
+
+    @Override
+    public Question findQuestionById(Integer qId) {
+        return questionRepository.findOne(qId);
+    }
+
+    @Override
+    public Question addUserQuestion(String title, String description) {
+        Subject subject = SecurityUtils.getSubject();
+        User user= (User)subject.getPrincipal();
+        Question question = new Question();
+        question.setTitle(title);
+        question.setDescription(description);
+        question.setCreator(user.getUserId());
+        System.out.println("问题创建成功");
+        Question saveQuestion = questionRepository.save(question);
+        return saveQuestion;
+    }
+
+
 }

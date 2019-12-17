@@ -62,14 +62,14 @@
                                     <td th:text="${resourceTypeDto.rtTitle}"></td>
                                     <td>
                                         <a th:href="@{/byadmin/resource/updateResType(rtId=${resourceTypeDto.rtId})}">
-                                            <button class="btn btn-primary btn-lg">
+                                            <button class="btn btn-primary">
                                                 修改
                                             </button>
                                         </a>
                                     </td>
                                     <td>
                                         <!-- 按钮触发模态框 -->
-                                        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                                        <button class="btn btn-danger" data-toggle="modal" data-target="#myModal">
                                             删除
                                         </button>
                                         <!-- 模态框（Modal） -->
@@ -91,7 +91,7 @@
                                                         <button type="button" class="btn btn-default" data-dismiss="modal">关闭
                                                         </button>
                                                         <a th:href="@{/byadmin/resource/deleteResType(rtId=${resourceTypeDto.rtId})}">
-                                                            <button type="button" class="btn btn-primary">
+                                                            <button type="button" class="btn btn-danger">
                                                                 确定删除
                                                             </button>
                                                         </a>

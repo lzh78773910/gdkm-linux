@@ -7,14 +7,14 @@ import lombok.Data;
 import java.util.Date;
 
 @Data
-public class QuestionDto {
-
-    private Integer qId;
-    private String title;
-    private String description;
+public class CommentDto {
+    private Integer cId;
+    private Integer parentId;
+    private Integer commentator;
+    private String content;
     private Date createtime;
     private Date updatetime;
-    private Integer creator;
     private Admin admin;
     private User user;
+
 }

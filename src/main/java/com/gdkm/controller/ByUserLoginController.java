@@ -25,6 +25,7 @@ public class ByUserLoginController {
         UsernamePasswordToken token = new UsernamePasswordToken(userName, userPass);
         //写shiro的认证逻辑
         Subject subject = SecurityUtils.getSubject();
+
         //因为可能出现异常,所以直接try catch
         try {
             //调用login方法,传入token
