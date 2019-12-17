@@ -75,9 +75,9 @@
                         layer.msg("<p style='color:black'>"+result.message+"</p>", {time:1000, icon:5, shift:6});
                     }
                 },
-                error : function(){
-                    layer.msg("<p style='color:black'>"+"登录失败!"+"</p>", {time:1000, icon:5, shift:6});
-                }
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    layer.msg("<p style='color:black'>"+服务器错误+"</p>", {time:1000, icon:5, shift:6});
+                    }
             });
 
         }

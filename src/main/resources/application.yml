@@ -8,9 +8,22 @@ spring:
     show-sql: true
   jackson:
     default-property-inclusion: non_null
-
-
-
+  redis:
+    port: 6379
+    host: 127.0.0.1
+#    host: 117.50.11.169
+  mail:
+    host: smtp.qq.com
+    username: lzh421@qq.com
+    password: kstfnozqjpxocajd
+    default-encoding: UTF-8
+    port: 465
+    properties:
+      mail:
+        smtp:
+          auth: true
+          socketFactory:
+            class: javax.net.ssl.SSLSocketFactory
 
 mybatis:
   mapper-locations: classpath:mapper/*.xml
@@ -27,6 +40,12 @@ projectUrl:
   imgUrl: D:/linux/img/
   shipinUrl: D:/linux/shipin/
   kejianUrl: D:/linux/kejian/
+#  imgUrl:  /Users/eddie/desktop/resource/
+#  kejianUrl: /Users/eddie/desktop/resource/
   img: /img/
   shipin: /shipin/
   kejian: /kejian/
+
+  imgUcloud: img
+  shipinUcloud: shipin
+  kejianUcloud: kejian

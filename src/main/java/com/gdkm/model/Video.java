@@ -16,16 +16,12 @@ public class Video {
     @Id
     @GeneratedValue
     private Integer videoId;
-
     private Integer adminId;
     private  String  videoText;
     private  String videoTitle;
-    private  String videoUrl;
     private Integer viewNum;
-
     private String videoImg;
     private String coursewareUrl;
-
     private Date createtime;
     private Date updatatime;
 

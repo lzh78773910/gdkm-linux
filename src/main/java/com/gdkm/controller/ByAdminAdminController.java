@@ -7,9 +7,7 @@ import com.gdkm.enums.ResultEnum;
 import com.gdkm.model.Admin;
 import com.gdkm.service.AdminService;
 import com.gdkm.utils.AjaxResult;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiImplicitParams;
-import io.swagger.annotations.ApiOperation;
+import com.gdkm.utils.UCloudProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -18,11 +16,9 @@ import org.springframework.web.servlet.ModelAndView;
 import springfox.documentation.annotations.ApiIgnore;
 
 import javax.servlet.http.HttpSession;
-import java.io.File;
 import java.io.IOException;
 import java.util.Map;
-import java.util.UUID;
-
+@ApiIgnore
 @Controller
 @RequestMapping("/byadmin/admin")
 public class ByAdminAdminController {
@@ -35,6 +31,8 @@ public class ByAdminAdminController {
     @Autowired
     public projectUrl projectUrl;
 
+    @Autowired
+    private UCloudProvider uCloudProvider;
 
     @GetMapping("/login")
     public ModelAndView login(){
@@ -42,25 +40,6 @@ public class ByAdminAdminController {
         return modelAndView;
     }
 
-    /**
-     * 同步登录
-     */
-/*    @PostMapping("/loginPost")
-    public ModelAndView longin(@RequestParam("adminName")String adminName, @RequestParam("adminPass")String adminPass, HttpSession session,Map map){
-        Admin admin = adminService.longin(adminName, adminPass);
-        if (admin!=null){
-            session.setAttribute("admin",admin);
-            session.setMaxInactiveInterval(30 * 60);
-            //防止重复提交表单 重定向到指定页面
-            ModelAndView modelAndView=new ModelAndView("redirect:"+projectUrl.getLinux()+"/linux/byadmin/user/list");
-            return modelAndView;
-        }else {
-            map.put("msg", ResultEnum.ADMIN_LONGIN_PASS_FALSE.getMessage());
-            ModelAndView modelAndView=new ModelAndView("admin/login",map);
-            //登录错误返回登录页面
-            return modelAndView;
-        }
-    }*/
 
     @PostMapping("/loginPost")
     @ResponseBody
@@ -133,30 +112,9 @@ public class ByAdminAdminController {
         Admin admin = (Admin) session.getAttribute("admin");
         Admin byAdminName = repository.findByAdminName(admin.getAdminName());
         byAdminName.setAdminNickname(adminNickname);
-
         if (!file.getOriginalFilename().equals("")) {
-            //处理文件
-            //获取的源文件的名称
-            String fileName = file.getOriginalFilename();
-            //找到文件的后缀
-            int lastIndexOf = fileName.lastIndexOf(".");
-            String houzhui = fileName.substring(lastIndexOf);
-
-            if (houzhui.equalsIgnoreCase(".jpg")||houzhui.equalsIgnoreCase(".png")){
-            if (byAdminName.getAdminIcon()!=null&&!byAdminName.getAdminIcon().equals("")){
-                int IconlastIndexOf = byAdminName.getAdminIcon().lastIndexOf("/");
-                fileName= byAdminName.getAdminIcon().substring(IconlastIndexOf+1);
-            }else {
-                fileName= UUID.randomUUID().toString()+houzhui;
-            }
-
-            //找到目标目录
-            String contextPath = projectUrl.getImgUrl();
-            //完成上传文件的操作
-            file.transferTo(new File(contextPath  + fileName));
-
-            byAdminName.setAdminIcon(projectUrl.getImg()+fileName);
-            }
+            String upload = uCloudProvider.upload(file.getInputStream(), file.getContentType(), file.getOriginalFilename(), projectUrl.getImgUcloud());
+            byAdminName.setAdminIcon(upload);
         }
         repository.save(byAdminName);
         map.put("admin",byAdminName);

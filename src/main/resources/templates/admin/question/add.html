@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="admin/common/head :: head"></head>
+<!--富文本编辑器样式-->
+<link th:href="@{/AdminLTE/css/editormd.min.css}" rel="stylesheet" type="text/css"/>
+<!--文件上传组件样式-->
+<link th:href="@{/AdminLTE/css/fileinput.min.css}" rel="stylesheet" type="text/css"/>
+
+<body class="skin-blue">
+<!-- header logo: style can be found in header.less 头部 -->
+
+
+<div th:replace="admin/common/headnav ::headnav"></div>
+
+
+<div class="wrapper row-offcanvas row-offcanvas-left">
+    <!-- Left side column. contains the logo and sidebar 左布局-->
+    <aside class="left-side sidebar-offcanvas">
+        <!-- sidebar: style can be found in sidebar.less -->
+        <div th:replace="admin/common/nav :: nav"></div>
+        <!-- /.sidebar -->
+    </aside>
+
+    <!-- Right side column. Contains the navbar and content of the page -->
+    <aside class="right-side">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <h1>
+                管理员管理
+                <small>控制面板</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Home首页</a></li>
+                <li class="active">问题上传</li>
+            </ol>
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="row">
+                <div class="col-md-12">
+
+                    <div class="box box-primary">
+                        <div class="box-header">
+                            <h3 class="box-title">教学资源上传</h3>
+                        </div><!-- /.box-header -->
+                        <!-- form start -->
+                        <form action="/linux/byadmin/question/addQuestion" method="post" enctype="multipart/form-data">
+                            <div class="box-body" style="height: 900px">
+                                <div class="form-group">
+                                    <label for="title">请输入问题</label>
+                                    <input type="text" style="width: 500px;" class="form-control" id="title"
+                                           name="title" placeholder="标题">
+                                </div>
+
+                                <div id="question-editor">
+                                    <textarea class="form-control" rows="3" cols="30" style="display:none;"
+                                              name="description" id="description" required></textarea>
+                                </div>
+
+                                <script type="text/javascript">
+                                    $(function () {
+                                        var editor = editormd("question-editor", {
+                                            width: "100%",
+                                            height: 350,
+                                            path: "/linux/AdminLTE/js/lib/",
+                                            watch: false,
+                                            placeholder: "在此处输入要提问的问题",
+                                            imageUpload: true,
+                                            imageFormats: ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
+                                            imageUploadURL: "/linux/file/upload"
+                                        });
+                                    });
+                                </script>
+
+                                <div class="form-group">
+                                    <div class="col-md-10 col-md-offset-1">
+                                        <button type="submit" class="btn btn-primary btn-lg">提交</button>
+                                    </div>
+                                </div>
+
+                            </div><!-- /.box-body -->
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </section><!-- /.content -->
+    </aside><!-- /.right-side -->
+
+</div><!-- ./wrapper -->
+<!--文件上传样式-->
+<script th:src="@{/AdminLTE/js/fileinput.min.js}" type="text/javascript"></script>
+<script th:src="@{/AdminLTE/js/fileinput_locale_zh.js}" type="text/javascript"></script>
+<!--富文本编辑器样式-->
+<script th:src="@{/AdminLTE/js/editormd.min.js}" type="text/javascript"></script>
+<script th:src="@{/AdminLTE/js/plugins/image-dialog/image-dialog.js}" type="text/javascript"></script>
+</body>
+</html>

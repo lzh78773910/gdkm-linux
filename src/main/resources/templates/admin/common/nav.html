@@ -47,11 +47,42 @@
         </li>
         <li class="treeview">
             <a href="#">
-                <span>课程评论</span>
+                <span>教学反馈</span>
                 <i class="fa fa-angle-left pull-right"></i>
             </a>
             <ul class="treeview-menu">
-                <li><a th:href="@{/byadmin/coursecomment/list}"><i class="fa fa-angle-double-right"></i> 课程评论列表</a></li>
+                <li><a th:href="@{/byadmin/coursecomment/list}"><i class="fa fa-angle-double-right"></i> 教学反馈列表</a></li>
+            </ul>
+        </li>
+        <li class="treeview">
+            <a href="#">
+                <span>教学资源管理</span>
+                <i class="fa fa-angle-left pull-right"></i>
+            </a>
+            <ul class="treeview-menu">
+                <li><a th:href="@{/byadmin/resource/addtype}"><i class="fa fa-angle-double-right"></i> 教学资源类型</a></li>
+                <li><a th:href="@{/byadmin/resource/type}"><i class="fa fa-angle-double-right"></i> 教学资源类型管理</a></li>
+                <li><a th:href="@{/byadmin/resource/file}"><i class="fa fa-angle-double-right"></i> 课件上传</a></li>
+                <li><a th:href="@{/byadmin/resource/list}"><i class="fa fa-angle-double-right"></i> 课件管理</a></li>
+            </ul>
+        </li>
+        <li class="treeview">
+            <a href="#">
+                <span>问题</span>
+                <i class="fa fa-angle-left pull-right"></i>
+            </a>
+            <ul class="treeview-menu">
+                <li><a th:href="@{/byadmin/question/add}"><i class="fa fa-angle-double-right"></i> 问题提交</a></li>
+                <li><a th:href="@{/byadmin/question/list}"><i class="fa fa-angle-double-right"></i> 问题查看</a></li>
+            </ul>
+        </li>
+        <li class="treeview">
+            <a href="#">
+                <span>问题回复</span>
+                <i class="fa fa-angle-left pull-right"></i>
+            </a>
+            <ul class="treeview-menu">
+                <li><a th:href="@{/byadmin/questionComment/add}"><i class="fa fa-angle-double-right"></i> 问题回复</a></li>
             </ul>
         </li>
     </ul>

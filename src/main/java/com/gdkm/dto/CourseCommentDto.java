@@ -13,9 +13,9 @@ public class CourseCommentDto {
     private String userContent;
     private Integer adminId;
     private String adminContent;
+    private Integer grade;
     private Date createtime;
     private Date updatatime;
-
     private Admin admin;
     private User user;
 }

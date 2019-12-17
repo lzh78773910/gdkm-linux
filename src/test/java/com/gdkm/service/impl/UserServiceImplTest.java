@@ -23,9 +23,9 @@ public class UserServiceImplTest {
     private UserService userService;
 
     @Test
-    public void findone() {
+    public User findone() {
         User findone = userService.findone(1);
-        System.out.println(findone.toString()+"......................................................");
+        return findone;
     }
     @Test
     public void pageUser(){
