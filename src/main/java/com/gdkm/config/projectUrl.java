@@ -40,4 +40,16 @@ public class projectUrl {
      * 映射课件上传路径
      */
     public String kejian;
+    /**
+     * 图片服务器前路径
+     */
+    public String imgUcloud;
+    /**
+     * 视频服务器前路径
+     */
+    public String shipinUcloud;
+    /**
+     * 课件服务器前路径
+     */
+    public String kejianUcloud;
 }

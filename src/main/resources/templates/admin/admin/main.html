@@ -45,7 +45,7 @@
                         <!-- form start -->
 
                         <div class="pull-left image" style="margin-left: 10px;width: 60px;height: 60px;" >
-                            <img th:src="@{${admin.getAdminIcon()} == null ? '/AdminLTE/img/avatar3.png' : ${admin.getAdminIcon()} } " class="img-circle" style="width: 100px;height: 60px;"/>
+                            <img th:src="${admin.getAdminIcon()} == null ? '/AdminLTE/img/avatar3.png' : ${admin.getAdminIcon()} " class="img-circle" style="width: 100px;height: 60px;"/>
                         </div>
                         <div class="form-group" style="margin-left:80px ">
                             <label for="exampleInputFile">头像上传</label>

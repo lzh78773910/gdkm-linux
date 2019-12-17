@@ -8,6 +8,7 @@ import com.gdkm.model.User;
 import com.gdkm.model.Video;
 import com.gdkm.model.VideoItem;
 import com.gdkm.service.VideoService;
+import com.gdkm.utils.UCloudProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.InputStreamResource;
@@ -32,14 +33,13 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
-@ApiIgnore()
+//@ApiIgnore()
 @Controller
 @RequestMapping("/byadmin/video")
 public class ByAdminVideoController {
 
     @Autowired
-    private AdminRepository adminRepository;
-
+    private UCloudProvider uCloudProvider;
     @Autowired
     private VideoService videoService;
     @Autowired
@@ -72,10 +72,12 @@ public class ByAdminVideoController {
     public ModelAndView one(@RequestParam(value = "videoId") Integer videoId,@RequestParam(value = "viId",required = false) Integer viId, Map map) {
 
         VideoDto videoDto = videoService.one(videoId);
-        VideoItem item = null;
+        VideoItem item = new VideoItem();
         if (viId==null){
             List<VideoItem> videoItem = videoDto.getVideoItem();
-            item = videoItem.get(0);
+            if (videoItem.size()>1){
+                item = videoItem.get(0);
+            }
         }else{
            item = videoService.Item(viId);
         }
@@ -86,22 +88,8 @@ public class ByAdminVideoController {
     }
 
     @RequestMapping(value = "/download")
-    public ResponseEntity<InputStreamResource> download(@RequestParam(value = "coursewareUrl") String coursewareUrl) throws IOException  {
-        String filePath = projectUrl.getKejianUrl()+coursewareUrl;
-        FileSystemResource file = new FileSystemResource(filePath);
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("Cache-Control", "no-cache, no-store, must-revalidate");
-        headers.add("Content-Disposition", String.format("attachment; filename=\"%s\"", file.getFilename()));
-        headers.add("Pragma", "no-cache");
-        headers.add("Expires", "0");
-
-        return ResponseEntity
-                .ok()
-                .headers(headers)
-                .contentLength(file.contentLength())
-                .contentType(MediaType.parseMediaType("application/octet-stream"))
-                .body(new InputStreamResource(file.getInputStream()));
-
+    public void download(@RequestParam(value = "coursewareUrl") String coursewareUrl) throws IOException  {
+        uCloudProvider.getStream(coursewareUrl);
     }
 
     @GetMapping("/add")
@@ -124,37 +112,13 @@ public class ByAdminVideoController {
         video.setVideoText(videoText);
         video.setViewNum(0);
         if (!file1KeJian.getOriginalFilename().equals("")) {
-            //处理文件
-            //获取的源文件的名称
-            String fileName = file1KeJian.getOriginalFilename();
-            //找到文件的后缀
-            int lastIndexOf = fileName.lastIndexOf(".");
-            String houzhui = fileName.substring(lastIndexOf);
-            fileName= UUID.randomUUID().toString()+houzhui;
-            //找到目标目录
-            String contextPath = projectUrl.getKejianUrl();
-            //完成上传文件的操作
-            file1KeJian.transferTo(new File(contextPath  + fileName));
-            video.setCoursewareUrl(fileName);
+            String upload = uCloudProvider.upload(file1KeJian.getInputStream(), file1KeJian.getContentType(), file1KeJian.getOriginalFilename(), projectUrl.getKejianUcloud());
+            video.setCoursewareUrl(upload);
         }
-
         if (!videoImg.getOriginalFilename().equals("")) {
-            //处理文件
-            //获取的源文件的名称
-            String fileName = videoImg.getOriginalFilename();
-            //找到文件的后缀
-            int lastIndexOf = fileName.lastIndexOf(".");
-            String houzhui = fileName.substring(lastIndexOf);
-            fileName= UUID.randomUUID().toString()+houzhui;
-            //找到目标目录
-            String contextPath = projectUrl.getImgUrl();
-            //完成上传文件的操作
-            videoImg.transferTo(new File(contextPath  + fileName));
-            video.setVideoImg(projectUrl.getImg()+fileName);
+            String upload = uCloudProvider.upload(videoImg.getInputStream(), videoImg.getContentType(), videoImg.getOriginalFilename(), projectUrl.getImgUcloud());
+            video.setVideoImg(upload);
         }
-
-
-
         videoService.add(video);
         ModelAndView modelAndView=new ModelAndView("redirect:"+projectUrl.getLinux()+"/byadmin/video/main");
         return modelAndView;
@@ -198,35 +162,26 @@ public class ByAdminVideoController {
         video.setVideoTitle(videoTitle);
         video.setVideoText(videoText);
         if (!file1KeJian.getOriginalFilename().equals("")) {
-            //处理文件
-            //获取的源文件的名称
-            String fileName = file1KeJian.getOriginalFilename();
-            //找到文件的后缀
-            int lastIndexOf = fileName.lastIndexOf(".");
-            String houzhui = fileName.substring(lastIndexOf);
-            fileName= UUID.randomUUID().toString()+houzhui;
-            //找到目标目录
-            String contextPath = projectUrl.getKejianUrl();
-            //完成上传文件的操作
-            file1KeJian.transferTo(new File(contextPath  + fileName));
-            video.setCoursewareUrl(fileName);
+            String upload = uCloudProvider.upload(file1KeJian.getInputStream(), file1KeJian.getContentType(), file1KeJian.getOriginalFilename(), projectUrl.getKejianUcloud());
+            video.setCoursewareUrl(upload);
         }
         if (!videoImg.getOriginalFilename().equals("")) {
-            //处理文件
-            //获取的源文件的名称
-            String fileName = videoImg.getOriginalFilename();
-            //找到文件的后缀
-            int lastIndexOf = fileName.lastIndexOf(".");
-            String houzhui = fileName.substring(lastIndexOf);
-            fileName= UUID.randomUUID().toString()+houzhui;
-            //找到目标目录
-            String contextPath = projectUrl.getImgUrl();
-            //完成上传文件的操作
-            videoImg.transferTo(new File(contextPath  + fileName));
-            video.setVideoImg(projectUrl.getImg()+fileName);
+            String upload = uCloudProvider.upload(videoImg.getInputStream(), videoImg.getContentType(), videoImg.getOriginalFilename(), projectUrl.getImgUcloud());
+            video.setVideoImg(projectUrl.getImg()+upload);
         }
         videoService.update(video);
         ModelAndView modelAndView=new ModelAndView("redirect:"+projectUrl.getLinux()+"/byadmin/video/update?videoId="+videoId);
+        return modelAndView;
+    }
+
+
+    @PostMapping("/additem")
+    public ModelAndView additem( @RequestParam(value = "videoId")Integer videoId,
+                                 @RequestParam(value = "title")String title,
+                                     @RequestParam(value = "file",required = true) MultipartFile file,
+                                     Map map) throws IOException {
+        videoService.additem(videoId,title,file);
+        ModelAndView modelAndView=new ModelAndView("redirect:"+projectUrl.getLinux()+"/byadmin/video/one?videoId="+videoId);
         return modelAndView;
     }
 }

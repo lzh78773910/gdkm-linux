@@ -23,4 +23,9 @@ public class ResultVOUtil {
         resultVO.setMsg(msg);
         return resultVO;
     }
+    public static ResultVO error(String msg){
+        ResultVO resultVO=new ResultVO();
+        resultVO.setMsg(msg);
+        return resultVO;
+    }
 }

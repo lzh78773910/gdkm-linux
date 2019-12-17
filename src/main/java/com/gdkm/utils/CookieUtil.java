@@ -21,12 +21,12 @@ public class CookieUtil {
      */
     public static void set(HttpServletResponse response,
                            String name,
-                           String value
-//                           int maxAge
+                           String value,
+                          Integer maxAge
     ) {
         Cookie cookie = new Cookie(name, value);
         cookie.setPath("/");
-//        cookie.setMaxAge(maxAge);
+        cookie.setMaxAge(maxAge);
         response.addCookie(cookie);
     }
 
