@@ -37,20 +37,20 @@ server:
 
 projectUrl:
   linux: http://localhost:8888/linux
-<<<<<<< HEAD
+
 #  imgUrl: D:/linux/img/
 #  shipinUrl: D:/linux/shipin/
 #  kejianUrl: D:/linux/kejian/
   imgUrl: /Users/eddie/desktop/resource/
   kejianUrl: /Users/eddie/desktop/resource/
 
-=======
-  imgUrl: D:/linux/img/
-  shipinUrl: D:/linux/shipin/
-  kejianUrl: D:/linux/kejian/
+
+#  imgUrl: D:/linux/img/
+#  shipinUrl: D:/linux/shipin/
+#  kejianUrl: D:/linux/kejian/
 #  imgUrl:  /Users/eddie/desktop/resource/
 #  kejianUrl: /Users/eddie/desktop/resource/
->>>>>>> 71bfd613478111402e5775127bff7416cbcf6fef
+
   img: /img/
   shipin: /shipin/
   kejian: /kejian/

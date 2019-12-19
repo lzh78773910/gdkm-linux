@@ -8,7 +8,6 @@ import com.gdkm.model.Comment;
 import com.gdkm.model.User;
 import com.gdkm.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -30,8 +29,9 @@ public class CommentServiceImpl implements CommentService {
 
     @Override
     public List<CommentDto> listByQid(Integer parentId) {
-        Sort sort = new Sort(Sort.Direction.DESC, "createtime");
-        List<Comment> comment = commentRepository.findByParentIdLike(parentId,sort);
+//        Sort sort = new Sort(Sort.Direction.DESC, "createtime");
+        List<Comment> comment = commentRepository.findByParentIdLike(parentId);
+//        List<Comment> comment = commentRepository.findByParentIdLike(parentId,sort);
         List<CommentDto> commentDtos = CommentToCommentDtoConverter.convert(comment);
         for (CommentDto commentDto:commentDtos){
             User user = userRepository.findOne(commentDto.getCommentator());

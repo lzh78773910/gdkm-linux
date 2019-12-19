@@ -21,4 +21,6 @@ public interface ResourceService {
 
 
     void deleteResource(Integer rtId);
+
+    Page<Resource> getPageSort(Integer page, Integer size);
 }

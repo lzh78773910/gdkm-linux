@@ -20,4 +20,6 @@ public interface ResourceTypeService {
     ResourceType update(ResourceType resourceType);
 
     void delete(Integer rtId);
+
+    Page<ResourceType> getPageSort(Integer page, Integer size);
 }

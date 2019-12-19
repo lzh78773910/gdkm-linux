@@ -7,6 +7,7 @@ import com.gdkm.model.Resource;
 import com.gdkm.model.ResourceType;
 import com.gdkm.service.ResourceService;
 import com.gdkm.service.ResourceTypeService;
+import com.gdkm.utils.UCloudProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -40,6 +41,9 @@ public class ByAdminResourceController {
 
     @Autowired
     public com.gdkm.config.projectUrl projectUrl;
+
+    @Autowired
+    private UCloudProvider uCloudProvider;
 
     //教学资源类型
     @GetMapping("/type")
@@ -151,18 +155,8 @@ public class ByAdminResourceController {
         resource.setViewNum(0);
         resource.setRtId(rtId);
         if (!resUrl.getOriginalFilename().equals("")) {
-            //处理文件
-            //获取的源文件的名称
-            String fileName = resUrl.getOriginalFilename();
-            //找到文件的后缀
-            int lastIndexOf = fileName.lastIndexOf(".");
-            String houzhui = fileName.substring(lastIndexOf);
-            fileName = UUID.randomUUID().toString() + houzhui;
-            //找到目标目录
-            String contextPath = projectUrl.getKejianUrl();
-            //完成上传文件的操作
-            resUrl.transferTo(new File(contextPath + fileName));
-            resource.setResUrl(projectUrl.getKejian() + fileName);
+            String upload = uCloudProvider.upload(resUrl.getInputStream(), resUrl.getContentType(), resUrl.getOriginalFilename(), projectUrl.getKejianUrl());
+            resource.setResUrl(upload);
         }
 
         resourceService.add(resource);
@@ -197,18 +191,8 @@ public class ByAdminResourceController {
         resource.setRtId(rtId);
 
         if (!resUrl.getOriginalFilename().equals("")) {
-            //处理文件
-            //获取的源文件的名称
-            String fileName = resUrl.getOriginalFilename();
-            //找到文件的后缀
-            int lastIndexOf = fileName.lastIndexOf(".");
-            String houzhui = fileName.substring(lastIndexOf);
-            fileName = UUID.randomUUID().toString() + houzhui;
-            //找到目标目录
-            String contextPath = projectUrl.getKejianUrl();
-            //完成上传文件的操作
-            resUrl.transferTo(new File(contextPath + fileName));
-            resource.setResUrl(projectUrl.getKejian() + fileName);
+            String upload = uCloudProvider.upload(resUrl.getInputStream(), resUrl.getContentType(), resUrl.getOriginalFilename(), projectUrl.getKejianUrl());
+            resource.setResUrl(upload);
         }
 
         resourceService.update(resource);
