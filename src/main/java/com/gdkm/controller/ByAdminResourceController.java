@@ -155,7 +155,7 @@ public class ByAdminResourceController {
         resource.setViewNum(0);
         resource.setRtId(rtId);
         if (!resUrl.getOriginalFilename().equals("")) {
-            String upload = uCloudProvider.upload(resUrl.getInputStream(), resUrl.getContentType(), resUrl.getOriginalFilename(), projectUrl.getKejianUrl());
+            String upload = uCloudProvider.upload(resUrl.getInputStream(), resUrl.getContentType(), resUrl.getOriginalFilename(), projectUrl.getKejianUcloud());
             resource.setResUrl(upload);
         }
 
@@ -191,7 +191,7 @@ public class ByAdminResourceController {
         resource.setRtId(rtId);
 
         if (!resUrl.getOriginalFilename().equals("")) {
-            String upload = uCloudProvider.upload(resUrl.getInputStream(), resUrl.getContentType(), resUrl.getOriginalFilename(), projectUrl.getKejianUrl());
+            String upload = uCloudProvider.upload(resUrl.getInputStream(), resUrl.getContentType(), resUrl.getOriginalFilename(), projectUrl.getKejianUcloud());
             resource.setResUrl(upload);
         }
 
