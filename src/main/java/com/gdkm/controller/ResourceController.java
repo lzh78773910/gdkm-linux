@@ -1,5 +1,6 @@
 package com.gdkm.controller;
 
+import com.gdkm.dto.ResourceDto;
 import com.gdkm.model.Resource;
 import com.gdkm.model.ResourceType;
 import com.gdkm.service.ResourceService;
@@ -12,7 +13,12 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.List;
 
 @Controller
 @Api(value = "前段教学资源展示", tags = "前段教学资源展示")
@@ -47,6 +53,25 @@ public class ResourceController {
         return ResultVOUtil.success(resourceTypePage);
     }
 
+    //资源根据id展示
+
+    /**
+     * 资源根据id展示
+     *
+     * @param rtId
+     * @return
+     */
+    @ApiOperation("资源类型根据Id查询")
+    @GetMapping(value = "/resources/{rtId}")
+    @ResponseBody
+    public ResultVO showResourceTypeByRtId(
+            @RequestParam(value = "rtId") Integer rtId
+    ) {
+        List<ResourceDto> resourceDtoList = resourceService.findResourceById(rtId);
+        return ResultVOUtil.success(resourceDtoList);
+    }
+
+
     //资源展示
 
     /**
@@ -76,7 +101,7 @@ public class ResourceController {
     @ApiOperation("资源下载")
     @GetMapping("/resource/download")
     @ResponseBody
-    public ResultVO resourceDownload(@RequestParam(value = "resUrl")String resUrl){
+    public ResultVO resourceDownload(@RequestParam(value = "resUrl") String resUrl) {
         uCloudProvider.getStream(resUrl);
         return ResultVOUtil.success();
     }

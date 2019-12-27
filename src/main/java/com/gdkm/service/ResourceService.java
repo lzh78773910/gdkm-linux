@@ -2,9 +2,10 @@ package com.gdkm.service;
 
 import com.gdkm.dto.ResourceDto;
 import com.gdkm.model.Resource;
-import com.gdkm.model.ResourceType;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+
+import java.util.List;
 
 public interface ResourceService {
 
@@ -23,4 +24,6 @@ public interface ResourceService {
     void deleteResource(Integer rtId);
 
     Page<Resource> getPageSort(Integer page, Integer size);
+
+    List<ResourceDto> findResourceById(Integer rtId);
 }

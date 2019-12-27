@@ -6,7 +6,6 @@ import com.gdkm.converter.ResourceToResourceDtoConverter;
 import com.gdkm.dto.ResourceDto;
 import com.gdkm.model.Admin;
 import com.gdkm.model.Resource;
-import com.gdkm.model.ResourceType;
 import com.gdkm.service.ResourceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.*;
@@ -79,6 +78,17 @@ public class ResourceServiceImpl implements ResourceService {
         Sort sort = new Sort(Sort.Direction.DESC, "updatetime");
         Pageable pageable = new PageRequest(page - 1, size, sort);
         return resourceRepository.findAll(pageable);
+    }
+
+    @Override
+    public List<ResourceDto> findResourceById(Integer rtId) {
+        List<Resource> resources = resourceRepository.findByRtIdLike(rtId);
+        List<ResourceDto> resourceDtos = ResourceToResourceDtoConverter.convert(resources);
+//        for (ResourceDto resourceDto:resourceDtos){
+//            User user = userRepository.findOne(commentDto.getCommentator());
+//            commentDto.setUser(user);
+//        }
+        return resourceDtos;
     }
 
 }
