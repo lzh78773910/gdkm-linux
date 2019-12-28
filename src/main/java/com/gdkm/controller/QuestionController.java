@@ -1,17 +1,13 @@
 package com.gdkm.controller;
 
 import com.gdkm.dto.CommentDto;
-import com.gdkm.model.Comment;
 import com.gdkm.model.Question;
-import com.gdkm.model.User;
 import com.gdkm.service.CommentService;
 import com.gdkm.service.QuestionService;
 import com.gdkm.utils.ResultVOUtil;
 import com.gdkm.vo.ResultVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
@@ -87,7 +83,7 @@ public class QuestionController {
     @ApiOperation("问题讨论展示")
     @GetMapping("/comment/{qId}")
     @ResponseBody
-    public ResultVO showSortComment(@RequestParam(value = "qId")Integer qId) {
+    public ResultVO showSortComment(@PathVariable(value = "qId")Integer qId) {
         List<CommentDto> commentDto = commentService.listByQid(qId);
         return ResultVOUtil.success(commentDto);
     }
@@ -95,22 +91,14 @@ public class QuestionController {
     //课后讨论添加回复
     /**
      * 课后讨论添加回复
-     * @param commentDto
+     * @param parentId
+     * @param content
      * @return
      */
     @ApiOperation("问题讨论添加")
-    @RequestMapping(value = "/byuser/addCommentByUser",method = RequestMethod.POST)
-    public ResultVO addCommentByUser(
-            @RequestBody CommentDto commentDto
-    ){
-        Subject subject = SecurityUtils.getSubject();
-        User user= (User)subject.getPrincipal();
-        Comment comment = new Comment();
-        comment.setParentId(commentDto.getParentId());
-        comment.setContent(commentDto.getContent());
-        comment.setCommentator(user.getUserId());
-        commentService.addComment(comment);
-        return ResultVOUtil.success();
+    @PostMapping(value = "/byuser/addCommentByUser")
+    public ResultVO addCommentByUser(Integer parentId,String content){
+        return ResultVOUtil.success(commentService.addComment(parentId,content));
     }
 
 }

@@ -7,6 +7,8 @@ import com.gdkm.dto.CommentDto;
 import com.gdkm.model.Comment;
 import com.gdkm.model.User;
 import com.gdkm.service.CommentService;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,10 +24,10 @@ public class CommentServiceImpl implements CommentService {
     @Autowired
     private UserRepository userRepository;
 
-    @Override
-    public Comment addComment(Comment comment) {
-        return commentRepository.save(comment);
-    }
+//    @Override
+//    public Comment addComment(Comment comment) {
+//        return commentRepository.save(comment);
+//    }
 
     @Override
     public List<CommentDto> listByQid(Integer parentId) {
@@ -43,6 +45,18 @@ public class CommentServiceImpl implements CommentService {
     @Override
     public Comment addCommentByUser(Comment comment) {
         return commentRepository.save(comment);
+    }
+
+    @Override
+    public Comment addComment(Integer parentId, String content) {
+        Subject subject = SecurityUtils.getSubject();
+        User user= (User)subject.getPrincipal();
+        Comment comment = new Comment();
+        comment.setParentId(parentId);
+        comment.setContent(content);
+        comment.setCommentator(user.getUserId());
+        Comment save = commentRepository.save(comment);
+        return save;
     }
 
 }
