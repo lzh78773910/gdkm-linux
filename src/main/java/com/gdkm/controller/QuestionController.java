@@ -1,6 +1,7 @@
 package com.gdkm.controller;
 
 import com.gdkm.dto.CommentDto;
+import com.gdkm.dto.QuestionDto;
 import com.gdkm.model.Question;
 import com.gdkm.service.CommentService;
 import com.gdkm.service.QuestionService;
@@ -39,7 +40,7 @@ public class QuestionController {
     @GetMapping("/question/{page}/{size}")
     @ResponseBody
     public ResultVO showSortPage(@PathVariable(value = "page", required = false) Integer page, @PathVariable(value = "size", required = false) Integer size) {
-        Page<Question> questionPage = questionService.getPageSort(page, size);
+        Page<QuestionDto> questionPage = questionService.getPageSort(page, size);
         return ResultVOUtil.success(questionPage);
     }
 
