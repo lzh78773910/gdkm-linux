@@ -1,6 +1,7 @@
 package com.gdkm.dto;
 
 import com.gdkm.model.Admin;
+import com.gdkm.model.User;
 import com.gdkm.model.VideoItem;
 import lombok.Data;
 
@@ -17,12 +18,13 @@ public class VideoDto {
     private  String videoUrl;
     private Integer viewNum;
     private String coursewareUrl;
+    private Integer commentator;
+
     private String videoImg;
     private Date createtime;
     private Date updatatime;
-
     private List<VideoItem> videoItem;
-
+    private User user;
     private Admin admin;
 
 }

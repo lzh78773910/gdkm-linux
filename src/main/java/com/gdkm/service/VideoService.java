@@ -2,12 +2,14 @@ package com.gdkm.service;
 
 import com.gdkm.dto.VideoDto;
 import com.gdkm.model.Video;
+import com.gdkm.model.VideoComment;
 import com.gdkm.model.VideoItem;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.List;
 
 public interface VideoService {
 
@@ -26,4 +28,10 @@ public interface VideoService {
     VideoItem Item(Integer viId);
 
     void additem(Integer videoId,String title, MultipartFile file) throws IOException;
+
+    Page<Video> getPage(Integer page, Integer size);
+
+    List<VideoItem> listByVid(Integer videoId);
+
+    List<VideoComment> commentByVid(Integer parentId);
 }

@@ -1,14 +1,9 @@
 package com.gdkm.service.impl;
 
-import com.gdkm.Repository.AdminRepository;
-import com.gdkm.Repository.VideoItemRepository;
-import com.gdkm.Repository.VideoRepository;
-import com.gdkm.config.projectUrl;
+import com.gdkm.Repository.*;
 import com.gdkm.converter.VideoTOVideoDtoConverter;
 import com.gdkm.dto.VideoDto;
-import com.gdkm.model.Admin;
-import com.gdkm.model.Video;
-import com.gdkm.model.VideoItem;
+import com.gdkm.model.*;
 import com.gdkm.service.VideoService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,9 +23,13 @@ public class VideoServiceImpl implements VideoService {
     @Autowired
     private VideoRepository videoRepository;
     @Autowired
+    private VideoCommentRepository videoCommentRepository;
+    @Autowired
     private AdminRepository adminRepository;
     @Autowired
     private VideoItemRepository videoItemRepository;
+    @Autowired
+    private UserRepository userRepository;
     @Autowired
     public com.gdkm.config.projectUrl projectUrl;
     @Override
@@ -105,9 +104,29 @@ public class VideoServiceImpl implements VideoService {
     }
 
     @Override
+    public Page<Video> getPage(Integer page, Integer size) {
+        Sort sort = new Sort(Sort.Direction.DESC, "createtime");
+        Pageable pageable = new PageRequest(page-1,size,sort);
+        return videoRepository.findAll(pageable);
+    }
+
+    @Override
     public Video onevideo(Integer videoId) {
         Video video = videoRepository.findOne(videoId);
-
         return video;
     }
+
+    @Override
+    public List<VideoItem> listByVid(Integer videoId) {
+        List<VideoItem> videos = videoItemRepository.findAllByVideoId(videoId);
+        return videos;
+    }
+
+    @Override
+    public List<VideoComment> commentByVid(Integer parentId) {
+        List<VideoComment> videoComment = videoCommentRepository.findByParentIdLike(parentId);
+        return videoComment;
+    }
+
+
 }
