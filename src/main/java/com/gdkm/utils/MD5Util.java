@@ -53,7 +53,7 @@ public class MD5Util {
 	    String s = new String("admin");
 	    System.out.println(digest(s));
 
-        String password = new Md5Hash("a123457","78773910",3).toString();
+        String password = new Md5Hash("a123456","a123456",3).toString();
         System.out.println("加盐加密"+password);
 	}  
 } 

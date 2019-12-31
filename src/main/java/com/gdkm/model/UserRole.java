@@ -11,11 +11,11 @@ import java.io.Serializable;
 @Entity
 @DynamicUpdate
 @Data
-public class AdminRole  implements Serializable {
+public class UserRole  implements Serializable {
 
     @Id
     @GeneratedValue
     private Integer id;
-    private Integer adminId;
+    private Integer userId;
     private Integer roleId;
 }

@@ -21,7 +21,6 @@ import java.util.Map;
 
 /**
  * Shiro的配置类
- * @author lenovo
  *
  */
 @Configuration
@@ -88,7 +87,7 @@ public class ShiroConfig {
         //将自定义的会话管理器注册到安全管理器中
         securityManager.setSessionManager(sessionManager());
         //将自定义的redis缓存管理器注册到安全管理器中
-        securityManager.setCacheManager(cacheManager());
+//        securityManager.setCacheManager(cacheManager());
 		return securityManager;
 	}
 	
@@ -133,7 +132,7 @@ public class ShiroConfig {
     public DefaultWebSessionManager sessionManager() {
         //自定义子类
         CustomSessionManager sessionManager = new CustomSessionManager();
-        sessionManager.setSessionDAO(redisSessionDAO());
+       // sessionManager.setSessionDAO(redisSessionDAO());
         //禁用所有的Cookie 这样自己设置的session就不起作用了
 //        sessionManager.setSessionIdCookieEnabled(false);
 //        sessionManager.setSessionIdUrlRewritingEnabled(false);

@@ -46,7 +46,6 @@ public class UCloudProvider {
     public String upload(InputStream fileStream, String mimeType, String fileName,String head) {
         String generatedFileName;
         String[] filePaths = fileName.split("\\.");
-        System.out.println(filePaths.toString());
         if (filePaths.length > 1) {
             if (head!=null) {
                 generatedFileName = head + "/" + UUID.randomUUID().toString() +"name"+filePaths[filePaths.length - 2]+ "." + filePaths[filePaths.length - 1];

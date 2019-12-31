@@ -1,27 +1,18 @@
 package com.gdkm.shiro;
 
-import com.gdkm.Repository.AdminRepository;
-import com.gdkm.Repository.AdminRoleRepository;
-import com.gdkm.Repository.RoleRepository;
 import com.gdkm.Repository.UserRepository;
-import com.gdkm.model.Admin;
-import com.gdkm.model.AdminRole;
-import com.gdkm.model.Role;
+import com.gdkm.exception.LinuxException;
 import com.gdkm.model.User;
-import lombok.val;
-import org.apache.shiro.SecurityUtils;
+import com.gdkm.vo.AppUser;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
-import org.apache.shiro.subject.SimplePrincipalCollection;
-import org.apache.shiro.subject.Subject;
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.ArrayList;
-import java.util.List;
+import javax.servlet.ServletContext;
+import java.util.Map;
 
 /**
  * 自定义Realm
@@ -29,7 +20,8 @@ import java.util.List;
  *
  */
 public class LoginRealm extends AuthorizingRealm{
-
+//    @Autowired
+//    private ServletContext servletContext;
     @Autowired
     private UserRepository userRepository;
 //    @Autowired
@@ -83,6 +75,7 @@ public class LoginRealm extends AuthorizingRealm{
         UsernamePasswordToken token = (UsernamePasswordToken) arg0;
             System.out.println("用户登录");
             User user = userRepository.findByuserName(token.getUsername());
+
             if (user == null) {
                 throw new UnknownAccountException("未知的账号");
             }else if(!user.getUserPass().equals(String.valueOf(token.getPassword()))){

@@ -10,6 +10,7 @@ import com.gdkm.model.Admin;
 import com.gdkm.model.Video;
 import com.gdkm.model.VideoItem;
 import com.gdkm.service.VideoService;
+import com.gdkm.utils.UCloudProvider;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.*;
@@ -25,6 +26,8 @@ import java.util.UUID;
 public class VideoServiceImpl implements VideoService {
 
 
+    @Autowired
+    private UCloudProvider uCloudProvider;
     @Autowired
     private VideoRepository videoRepository;
     @Autowired
@@ -88,18 +91,8 @@ public class VideoServiceImpl implements VideoService {
         item.setVideoId(videoId);
         item.setViTitle(title);
         if (!file.getOriginalFilename().equals("")) {
-            //处理文件
-            //获取的源文件的名称
-            String fileName = file.getOriginalFilename();
-            //找到文件的后缀
-            int lastIndexOf = fileName.lastIndexOf(".");
-            String houzhui = fileName.substring(lastIndexOf);
-            fileName= UUID.randomUUID().toString()+houzhui;
-            //找到目标目录
-            String contextPath = projectUrl.getShipinUrl();
-            //完成上传文件的操作
-            file.transferTo(new File(contextPath  + fileName));
-            item.setViUrl(projectUrl.getShipin()+fileName);
+            String upload = uCloudProvider.upload(file.getInputStream(), file.getContentType(), file.getOriginalFilename(), projectUrl.getShipinUcloud());
+            item.setViUrl(upload);
         }
         videoItemRepository.save(item);
     }

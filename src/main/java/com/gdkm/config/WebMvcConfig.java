@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry;
 
 @Configuration
 public class WebMvcConfig extends WebMvcConfigurerAdapter {
@@ -16,12 +17,14 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
         registry.addResourceHandler(projectUrl.getShipin()+"**").addResourceLocations("file:"+projectUrl.getShipinUrl());
         registry.addResourceHandler(projectUrl.getKejian()+"**").addResourceLocations("file:"+projectUrl.getKejianUrl());
     }
-    @Override
-    public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**")
-                .allowCredentials(true)
-                .allowedHeaders("*")
-                .allowedOrigins("*")
-                .allowedMethods("*");
-    }
+//    @Override
+//    public void addCorsMappings(CorsRegistry registry) {
+//        registry.addMapping("/**")
+//                .allowCredentials(true)
+//                .allowedHeaders("*")
+//                .allowedOrigins("*")
+//                .allowedMethods("*");
+//    }
+
+
 }

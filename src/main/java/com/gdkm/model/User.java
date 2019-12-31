@@ -34,6 +34,7 @@ public class User  implements Serializable, AuthCachePrincipal {
     private Date createtime;
     @JsonSerialize(using = Date2LongSerializer.class)
     private Date updatatime;
+    private Integer roleId;
 
     public User() {
     }

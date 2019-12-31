@@ -78,6 +78,7 @@ public class UserServiceImpl implements UserService {
         }
         User user=new User();
         BeanUtils.copyProperties(registerVo,user);
+        user.setRoleId(1);
         user.setUserIcon(projectUrl.getImg()+"icon.jpg");
         String userPass = new Md5Hash(user.getUserPass(),user.getUserName(),3).toString();
         user.setUserPass(userPass);

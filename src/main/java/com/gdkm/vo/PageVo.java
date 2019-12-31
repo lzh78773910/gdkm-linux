@@ -10,6 +10,6 @@ import java.util.List;
 public class PageVo<T> {
 
     private Integer  totalPage;
-    private Integer currentPage;
+    private Integer  currentPage;
     List<T> list;
 }

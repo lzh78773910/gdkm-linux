@@ -25,17 +25,18 @@ public class CustomSessionManager extends DefaultWebSessionManager {
      */
     @Override
     protected Serializable getSessionId(ServletRequest request, ServletResponse response) {
+        //获取请求头信息
         String id= WebUtils.toHttp(request).getHeader("Authorization");
-
         if (StringUtils.isEmpty(id)) {
+            //为空则创建新的sessionid
             return super.getSessionId(request,response);
         }else {
             id=id.replaceAll("beared","");
             //在哪里获取
-            //id是什么
-            //是否要验证
             request.setAttribute(ShiroHttpServletRequest.REFERENCED_SESSION_ID_SOURCE, "header");
+            //id是什么
             request.setAttribute(ShiroHttpServletRequest.REFERENCED_SESSION_ID, id);
+            //是否要验证
             request.setAttribute(ShiroHttpServletRequest.REFERENCED_SESSION_ID_IS_VALID, Boolean.TRUE);
             return id;
         }
