@@ -2,6 +2,16 @@
 <html xmlns:th="http://www.thymeleaf.org" >
 <head th:replace="admin/common/head :: head"></head>
 <link th:href="@{/AdminLTE/mycss/mycss.css}" rel="stylesheet" type="text/css" />
+<link th:href="@{/AdminLTE/css/question-comment.css}" rel="stylesheet" type="text/css"/>
+<!--<style>-->
+<!--    .testImg{-->
+<!--        width: 60px;-->
+<!--        height: 60px;-->
+<!--        float: left;-->
+<!--        border-radius:50%;-->
+<!--    }-->
+
+<!--</style>-->
 <!--富文本编辑器样式-->
 <link th:href="@{/AdminLTE/css/editormd.min.css}" rel="stylesheet" type="text/css"/>
 <link th:href="@{/AdminLTE/css/editormd.preview.min.css}" rel="stylesheet" type="text/css"/>
@@ -67,9 +77,11 @@
                                         </script>
                                         <hr class="col-lg-11 col-md-12 col-sm-12 col-xs-12">
                                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" th:each="comment : ${comments}">
+                                        <div class="media" style="margin: 10px">
                                             <div class="media-left">
                                                 <a href="#">
-                                                    <img class="media-object img-rounded" th:src="${comment.user.userIcon}">
+<!--                                                    <img class="img-responsive img-circle" style="width: 60px;height: 60px" th:src="${comment.user.userIcon}" alt="裂开">-->
+                                                    <img alt="裂开" th:src="${comment.user.userIcon}" class="media-object img-circle testImg" >
                                                 </a>
                                             </div>
                                             <div class="media-body" th:id="${'comment-body-'+comment.cId}">
@@ -85,13 +97,14 @@
                                                 </div>
                                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 collapse sub-comments" th:id="${'comment-'+comment.cId}">
                                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                                        <input type="text" class="form-control" placeholder="评论一下……"
-                                                               th:id="${'input-'+comment.cId}">
-                                                        <button type="button" class="btn btn-success pull-right" onclick="comment(this)" th:data-id="${comment.cId}">评论
-                                                        </button>
+<!--                                                        <input type="text" class="form-control" placeholder="评论一下……"-->
+<!--                                                               th:id="${'input-'+comment.cId}">-->
+<!--                                                        <button type="button" class="btn btn-success pull-right" onclick="comment(this)" th:data-id="${comment.cId}">评论-->
+<!--                                                        </button>-->
                                                     </div>
                                                 </div>
                                             </div>
+                                        </div>
                                         </div>
 <!--                                        <hr class="col-lg-11 col-md-12 col-sm-12 col-xs-12">-->
 <!--                                        <h2>提交回复</h2>-->

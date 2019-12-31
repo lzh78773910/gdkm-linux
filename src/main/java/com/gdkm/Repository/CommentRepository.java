@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface CommentRepository extends JpaRepository<Comment,Integer> {
 
-    List<Comment> findByParentIdLike(Integer parentId, Sort sort);
+    List<Comment> findByParentIdLike(Integer parentId);
 
 }

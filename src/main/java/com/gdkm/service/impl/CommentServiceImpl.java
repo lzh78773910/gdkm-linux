@@ -7,8 +7,9 @@ import com.gdkm.dto.CommentDto;
 import com.gdkm.model.Comment;
 import com.gdkm.model.User;
 import com.gdkm.service.CommentService;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -23,15 +24,16 @@ public class CommentServiceImpl implements CommentService {
     @Autowired
     private UserRepository userRepository;
 
-    @Override
-    public Comment addComment(Comment comment) {
-        return commentRepository.save(comment);
-    }
+//    @Override
+//    public Comment addComment(Comment comment) {
+//        return commentRepository.save(comment);
+//    }
 
     @Override
     public List<CommentDto> listByQid(Integer parentId) {
-        Sort sort = new Sort(Sort.Direction.DESC, "createtime");
-        List<Comment> comment = commentRepository.findByParentIdLike(parentId,sort);
+//        Sort sort = new Sort(Sort.Direction.DESC, "createtime");
+        List<Comment> comment = commentRepository.findByParentIdLike(parentId);
+//        List<Comment> comment = commentRepository.findByParentIdLike(parentId,sort);
         List<CommentDto> commentDtos = CommentToCommentDtoConverter.convert(comment);
         for (CommentDto commentDto:commentDtos){
             User user = userRepository.findOne(commentDto.getCommentator());
@@ -43,6 +45,18 @@ public class CommentServiceImpl implements CommentService {
     @Override
     public Comment addCommentByUser(Comment comment) {
         return commentRepository.save(comment);
+    }
+
+    @Override
+    public Comment addComment(Integer parentId, String content) {
+        Subject subject = SecurityUtils.getSubject();
+        User user= (User)subject.getPrincipal();
+        Comment comment = new Comment();
+        comment.setParentId(parentId);
+        comment.setContent(content);
+        comment.setCommentator(user.getUserId());
+        Comment save = commentRepository.save(comment);
+        return save;
     }
 
 }

@@ -63,7 +63,7 @@ function collapseComments(e) {
                     var mediaLeftElement = $("<div/>", {
                         "class": "media-left"
                     }).append($("<img/>", {
-                        "class": "media-object img-rounded",
+                        "class": "media-object img-circle testImg",
                         "src": comment.user.userIcon
                     }));
 
@@ -86,7 +86,7 @@ function collapseComments(e) {
                     }).append(mediaLeftElement).append(mediaBodyElement);
 
                     var commentElement = $("<div/>", {
-                        "class": "col-lg-12 col-md-12 col-sm-12 col-xs-12 comments"
+                        "class": "col-lg-12 col-md-12 col-sm-12 col-xs-12"
                     }).append(mediaElement);
 
                     subCommentContainer.prepend(commentElement);

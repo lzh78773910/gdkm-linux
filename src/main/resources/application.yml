@@ -3,7 +3,8 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     username: root
     password: root
-    url: jdbc:mysql://127.0.0.1/gdkm_linux?characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+#    url: jdbc:mysql://127.0.0.1/gdkm_linux?characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+    url: jdbc:mysql://117.50.11.169/gdkm_linux?characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
   jpa:
     show-sql: true
   jackson:
@@ -38,14 +39,10 @@ server:
 projectUrl:
   linux: http://localhost:8888/linux
 
-#  imgUrl: /Users/eddie/desktop/resource/
-#  kejianUrl: /Users/eddie/desktop/resource/
 
   imgUrl: D:/linux/img/
   shipinUrl: D:/linux/shipin/
   kejianUrl: D:/linux/kejian/
-#  imgUrl:  /Users/eddie/desktop/resource/
-#  kejianUrl: /Users/eddie/desktop/resource/
 
   img: /img/
   shipin: /shipin/

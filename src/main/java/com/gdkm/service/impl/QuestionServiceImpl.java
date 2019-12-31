@@ -1,6 +1,7 @@
 package com.gdkm.service.impl;
 
 import com.gdkm.Repository.QuestionRepository;
+import com.gdkm.Repository.UserRepository;
 import com.gdkm.converter.QuestionToQuestionDtoConverter;
 import com.gdkm.dto.QuestionDto;
 import com.gdkm.model.Question;
@@ -21,6 +22,9 @@ public class QuestionServiceImpl implements QuestionService {
     @Autowired
     private QuestionRepository questionRepository;
 
+    @Autowired
+    private UserRepository userRepository;
+
     //问题添加
     @Override
     public Question addQuestion(Question question) {
@@ -29,10 +33,20 @@ public class QuestionServiceImpl implements QuestionService {
 
     @Override
     @Transactional(readOnly = true)
-    public Page<Question> getPageSort(Integer page, Integer size) {
+    public PageImpl<QuestionDto> getPageSort(Integer page, Integer size) {
         Sort sort = new Sort(Sort.Direction.DESC, "createtime");
         Pageable pageable = new PageRequest(page - 1, size, sort);
-        return questionRepository.findAll(pageable);
+        Subject subject = SecurityUtils.getSubject();
+        User userSession=(User)subject.getPrincipal();
+        Page<Question> questionDtoPage = questionRepository.findAll(pageable);
+        Question question = new Question();
+        List<QuestionDto> covert = QuestionToQuestionDtoConverter.convert(questionDtoPage.getContent());
+        for (QuestionDto questionDto:covert){
+            User user = userRepository.findOne(questionDto.getCreator());
+            questionDto.setUser(user);
+        }
+        return new PageImpl<QuestionDto>(covert,pageable,questionDtoPage.getTotalElements());
+//        return questionRepository.findAll(pageable);
     }
 
     @Override

@@ -8,9 +8,7 @@ import com.gdkm.model.Admin;
 import com.gdkm.model.ResourceType;
 import com.gdkm.service.ResourceTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
-import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -72,6 +70,12 @@ public class ResourceTypeServiceImpl implements ResourceTypeService {
     @Override
     public void delete(Integer rtId) {
         resourceTypeRepository.delete(rtId);
+    }
+
+    @Override
+    public Page<ResourceType> getPageSort(Integer page, Integer size) {
+        Pageable pageable = new PageRequest(page - 1, size);
+        return resourceTypeRepository.findAll(pageable);
     }
 
 }

@@ -1,0 +1,14 @@
+.testImg{
+    width: 60px;
+    height: 60px;
+    float: left;
+    border-radius:50%;
+}
+.media-body .menu .comment-icon {
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.media-body .menu .comment-icon :hover {
+    color: #499ef3;
+}

@@ -46,7 +46,7 @@ public class HomeController {
     }
     @ApiOperation(value = "网站的总数量")
     @ResponseBody
-    @GetMapping("/ totalcout")
+    @GetMapping("/totalcout")
     public ResultVO totalcout(){
         Set ipSet = (Set) servletContext.getAttribute("ipSet");
         long count = totalVisitsService.countAll();
