@@ -1,5 +1,6 @@
 package com.gdkm.service;
 
+import com.gdkm.dto.VideoCommentDto;
 import com.gdkm.dto.VideoDto;
 import com.gdkm.model.Video;
 import com.gdkm.model.VideoComment;
@@ -33,5 +34,7 @@ public interface VideoService {
 
     List<VideoItem> listByVid(Integer videoId);
 
-    List<VideoComment> commentByVid(Integer parentId);
+    List<VideoCommentDto> commentByVid(Integer parentId);
+
+    VideoComment addVideoComment(Integer parentId, String vcContent);
 }
