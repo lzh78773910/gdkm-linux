@@ -65,7 +65,7 @@ public class ResourceController {
     @GetMapping(value = "/resources/{rtId}")
     @ResponseBody
     public ResultVO showResourceTypeByRtId(
-            @RequestParam(value = "rtId") Integer rtId
+            @PathVariable(value = "rtId") Integer rtId
     ) {
         List<ResourceDto> resourceDtoList = resourceService.findResourceById(rtId);
         return ResultVOUtil.success(resourceDtoList);
