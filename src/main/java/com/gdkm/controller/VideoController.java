@@ -12,10 +12,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -34,13 +31,33 @@ public class VideoController {
      * @param size
      * @return
      */
-    @ApiOperation("视频展示")
+    @ApiOperation("按时间视频分页展示")
     @GetMapping("/video/{page}/{size}")
     public ResultVO showVideo(
             @PathVariable(value = "page", required = false) Integer page,
-            @PathVariable(value = "size", required = false) Integer size
+            @PathVariable(value = "size", required = false) Integer size,
+            @RequestParam(value = "title",required = false) String title
     ) {
-        Page<Video> videoDtoPage = videoService.getPage(page, size);
+        Page<Video> videoDtoPage = videoService.getPage(page, size,title,"createtime");
+        return ResultVOUtil.success(videoDtoPage);
+    }
+
+    //教学视频展示
+    /**
+     * 分页反馈
+     *
+     * @param page
+     * @param size
+     * @return
+     */
+    @ApiOperation("按浏览量视频分页展示")
+    @GetMapping("/video/viewNum/{page}/{size}")
+    public ResultVO viewNumVideo(
+            @PathVariable(value = "page", required = false) Integer page,
+            @PathVariable(value = "size", required = false) Integer size,
+            @RequestParam(value = "title",required = false) String title
+    ) {
+        Page<Video> videoDtoPage = videoService.getPage(page, size,title,"viewNum");
         return ResultVOUtil.success(videoDtoPage);
     }
 

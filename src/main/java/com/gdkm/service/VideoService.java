@@ -30,7 +30,7 @@ public interface VideoService {
 
     void additem(Integer videoId,String title, MultipartFile file) throws IOException;
 
-    Page<Video> getPage(Integer page, Integer size);
+    Page<Video> getPage(Integer page, Integer size,String title,String sortStr);
 
     List<VideoItem> listByVid(Integer videoId);
 

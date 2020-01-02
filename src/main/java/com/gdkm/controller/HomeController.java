@@ -2,7 +2,9 @@ package com.gdkm.controller;
 
 import com.gdkm.Repository.TotalVisitsRepostory;
 import com.gdkm.dto.HomeLabelDto;
+import com.gdkm.model.Herf;
 import com.gdkm.model.LabelTitle;
+import com.gdkm.service.HerfService;
 import com.gdkm.service.HomeLebelService;
 import com.gdkm.service.TotalVisitsService;
 import com.gdkm.utils.ResultVOUtil;
@@ -35,6 +37,9 @@ public class HomeController {
 
     @Autowired
     private TotalVisitsService totalVisitsService;
+
+    @Autowired
+    private HerfService herfService;
 
 
     @ApiOperation(value = "每一天访问网站的数量")
@@ -75,4 +80,13 @@ public class HomeController {
         }
         return labelVOList;
     }
+
+    @ApiOperation(value = "友情连接")
+    @ResponseBody
+    @GetMapping("/herf")
+    public ResultVO herf(){
+        List<Herf> herfList = herfService.getHerfList();
+        return ResultVOUtil.success(herfList);
+    }
+
 }

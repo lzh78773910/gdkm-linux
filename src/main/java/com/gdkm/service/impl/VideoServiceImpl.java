@@ -102,10 +102,17 @@ public class VideoServiceImpl implements VideoService {
     }
 
     @Override
-    public Page<Video> getPage(Integer page, Integer size) {
-        Sort sort = new Sort(Sort.Direction.DESC, "createtime");
+    public Page<Video> getPage(Integer page, Integer size,String title,String sortStr) {
+        Sort sort = new Sort(Sort.Direction.DESC, sortStr);
         Pageable pageable = new PageRequest(page - 1, size, sort);
-        return videoRepository.findAll(pageable);
+        Page<Video> videoPage;
+        if (!(title == null || title.equals(""))) {
+            title = '%' + title + '%';
+            videoPage = videoRepository.findByVideoTitleLike(pageable, title);
+        } else {
+            videoPage = videoRepository.findAll(pageable);
+        }
+        return videoPage;
     }
 
     @Override

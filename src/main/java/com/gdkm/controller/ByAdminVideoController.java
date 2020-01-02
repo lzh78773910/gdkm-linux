@@ -54,16 +54,11 @@ public class ByAdminVideoController {
         Sort sort = new Sort(Sort.Direction.DESC,"createtime");
         PageRequest request = new PageRequest(page - 1, size,sort);
         Page<VideoDto> videoDtoPage = videoService.list(request,videoTitle);
-
-
-
         map.put("videoDtoPage", videoDtoPage);
         map.put("currentPage", page);
         map.put("size", size);
         map.put("TotalPage", videoDtoPage.getTotalPages());
         map.put("videoTitle", videoTitle);
-
-
         ModelAndView modelAndView = new ModelAndView("admin/video/main", map);
         return modelAndView;
     }
