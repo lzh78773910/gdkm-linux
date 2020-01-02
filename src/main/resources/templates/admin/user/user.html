@@ -19,7 +19,7 @@
             </aside>
 
             <!-- Right side column. Contains the navbar and content of the page -->
-            <aside class="right-side">                
+            <aside class="right-side">
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
@@ -74,9 +74,9 @@
                                             </tr>
 
                                         </tbody>
-                                      
+
                                     </table>
-                                    
+
                                         <div class="box-footer clearfix">
                                     <ul class="pagination pagination-sm no-margin pull-right">
                                         <li th:class="${currentPage le 1} ? 'disabled':''"><a th:href="${currentPage le 1} ?'#':@{/byadmin/user/list(page=${currentPage - 1},size=${size})}">上一页</a></li>

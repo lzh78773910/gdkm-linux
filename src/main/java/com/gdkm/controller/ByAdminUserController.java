@@ -2,6 +2,7 @@ package com.gdkm.controller;
 
 import com.gdkm.model.User;
 import com.gdkm.service.UserService;
+import com.gdkm.utils.ResultVOUtil;
 import com.gdkm.vo.PageVo;
 import com.gdkm.vo.ResultVO;
 import io.swagger.annotations.ApiOperation;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import springfox.documentation.annotations.ApiIgnore;
 
+import javax.transaction.Transactional;
 import java.util.Map;
 @ApiIgnore
 @Controller
@@ -23,6 +25,8 @@ public class ByAdminUserController {
 
     @Autowired
     private UserService userService;
+
+
 
     @GetMapping("/list")
     public ModelAndView user(@RequestParam(value = "page", defaultValue = "1") Integer page,
