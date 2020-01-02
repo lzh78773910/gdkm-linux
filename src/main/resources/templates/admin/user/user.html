@@ -3,98 +3,229 @@
 
 <head th:replace="admin/common/head :: head"></head>
 
-    <body class="skin-blue">
-        <!-- header logo: style can be found in header.less 头部 -->
+<body class="skin-blue">
+<!-- header logo: style can be found in header.less 头部 -->
 
 
-     <div th:replace="admin/common/headnav :: headnav"></div>
+<div th:replace="admin/common/headnav :: headnav"></div>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".chakan2").click(function(){
+            $('.chakan').show();
+            $('#cover').css('display','block');});
+        $("#qd").click(function(){
+            $('.chakan').hide();
+            $('#cover').css('display','none')
+        });
 
 
-        <div class="wrapper row-offcanvas row-offcanvas-left">
-            <!-- Left side column. contains the logo and sidebar 左布局-->
-            <aside class="left-side sidebar-offcanvas">
-                <!-- sidebar: style can be found in sidebar.less -->
-              <div th:replace="admin/common/nav :: nav"></div>
-                <!-- /.sidebar -->
-            </aside>
 
-            <!-- Right side column. Contains the navbar and content of the page -->
-            <aside class="right-side">                
-                <!-- Content Header (Page header) -->
-                <section class="content-header">
-                    <h1>
-                        用户管理
-                        <small>控制面板</small>
-                    </h1>
-                    <ol class="breadcrumb">
-                        <li><a href="#"><i class="fa fa-dashboard"></i> Home首页</a></li>
-                        <li class="active">用户列表</li>
-                    </ol>
-                </section>
+    });
+</script>
+<style>
+    #cover{
+        background:grey;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
 
-                <!-- Main content -->
-                <section class="content">
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <div class="box">
-                               <div class="box-header">
-                                    <h3 class="box-title">用户列表</h3>
-                                 <div class="box-tools">
-                                        <div class="input-group">
-                                            <input type="text" name="table_search" class="form-control input-sm pull-right" style="width: 150px;" placeholder="Search"/>
-                                            <div class="input-group-btn">
-                                                <button class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
-                                            </div>
-                                        </div>
-                                 </div>
-                              </div><!-- /.box-header -->
-                                <div class="box-body table-responsive">
-                                    <table id="example2" class="table table-bordered table-hover">
-                                        <thead>
-                                            <tr>
-                                                <th>账号</th>
-                                                <th>昵称</th>
-                                                <th>学号</th>
-                                                <th>状态</th>
-                                                <th>创建时间</th>
-                                                <th>修改时间</th>
-                                                <th colspan="2">操作</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr th:each="user:${userPage.content}">
-                                                <td th:text="${user.userName}"></td>
-                                                <td th:text="${user.userNickname}"></td>
-                                                <td th:text="${user.userNumber}"></td>
-                                                <td th:text="${user.status==true}? '正常' : '禁止'"></td>
-                                                <td th:text="${user.createtime}"></td>
-                                                <td th:text="${user.updatatime}"></td>
-                                                <td><a>查看</a></td>
-                                                <td><a th:text="${user.status==true}? '禁止登录' : '恢复登录'"></a></td>
-                                            </tr>
+        opacity: 0.3;
+        display: none;
+        z-index: 2;
+    }
+    #gr{
+        color: #3c8dbc;
+        text-align: center;
 
-                                        </tbody>
-                                      
-                                    </table>
-                                    
-                                        <div class="box-footer clearfix">
-                                    <ul class="pagination pagination-sm no-margin pull-right">
-                                        <li th:class="${currentPage le 1} ? 'disabled':''"><a th:href="${currentPage le 1} ?'#':@{/byadmin/user/list(page=${currentPage - 1},size=${size})}">上一页</a></li>
-                                        <li><a href="#" th:text="${currentPage+'/'+TotalPage}">0</a></li>
-                                        <li th:class="${currentPage ge TotalPage} ? 'disabled':''"><a th:href="${currentPage ge TotalPage} ?'#':@{/byadmin/user/list(page=${currentPage + 1},size=${size})}">下一页</a></li>
-                                    </ul>
+
+    }
+    ul{
+        list-style: none;
+        line-height: 30px;
+    }
+    p{
+        color: #3c8dbc;
+    }
+    .chakan {
+        width: 350px;
+        height: 500px;
+        border: 1px solid #fff;
+        background: #fff;
+        border-radius: 6px;
+        display: none;
+        position: absolute;
+        top: 10%;
+        left: 35%;
+        z-index: 3;
+        background: #fff ";}
+
+
+
+
+</style>
+
+<div class="wrapper row-offcanvas row-offcanvas-left">
+    <!-- Left side column. contains the logo and sidebar 左布局-->
+    <aside class="left-side sidebar-offcanvas">
+        <!-- sidebar: style can be found in sidebar.less -->
+        <div th:replace="admin/common/nav :: nav"></div>
+        <!-- /.sidebar -->
+    </aside>
+
+    <!-- Right side column. Contains the navbar and content of the page -->
+    <aside class="right-side">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <h1>
+                用户管理
+                <small>控制面板</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Home首页</a></li>
+                <li class="active">用户列表</li>
+            </ol>
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="box">
+                        <div class="box-header">
+                            <h3 class="box-title">用户列表</h3>
+                            <div class="box-tools">
+                                <div class="input-group">
+                                    <input type="text" name="table_search" class="form-control input-sm pull-right" style="width: 150px;" placeholder="Search"/>
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
+                                    </div>
                                 </div>
-                                </div><!-- /.box-body -->
-                            </div><!-- /.box --><!-- /.box -->
-                        </div>
-                    </div>
+                            </div>
+                        </div><!-- /.box-header -->
+                        <div class="box-body table-responsive">
+                            <table id="example2" class="table table-bordered table-hover">
+                                <thead>
+                                <tr>
+
+                                    <th>账号</th>
+                                    <th>昵称</th>
+                                    <th>学号</th>
+                                    <th>状态</th>
+                                    <th>创建时间</th>
+                                    <th>修改时间</th>
+                                    <th colspan="2">操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="user:${userPage.content}">
+
+                                    <td th:text="${user.userName}"></td>
+                                    <td th:text="${user.userNickname}"></td>
+                                    <td th:text="${user.userNumber}"></td>
+                                    <td id="ddd" th:text="${user.status==true}? '正常' : '禁止'"></td>
+                                    <td th:text="${user.createtime}"></td>
+                                    <td th:text="${user.updatatime}"></td>
+                                    <td><a class="chakan2">查看</a></td>
 
 
-                </section><!-- /.content -->
-            </aside><!-- /.right-side -->
-        </div><!-- ./wrapper -->
+
+                                    <td><a  id="dd" class="jinyong" th:text="${user.status==true}? '禁止登录' : '恢复登录'"></a></td>
+                                </tr>
+
+                                </tbody>
+
+                            </table>
+
+                            <div class="box-footer clearfix">
+                                <ul class="pagination pagination-sm no-margin pull-right">
+                                    <li th:class="${currentPage le 1} ? 'disabled':''"><a th:href="${currentPage le 1} ?'#':@{/byadmin/user/list(page=${currentPage - 1},size=${size})}">上一页</a></li>
+                                    <li><a href="#" th:text="${currentPage+'/'+TotalPage}">0</a></li>
+                                    <li th:class="${currentPage ge TotalPage} ? 'disabled':''"><a th:href="${currentPage ge TotalPage} ?'#':@{/byadmin/user/list(page=${currentPage + 1},size=${size})}">下一页</a></li>
+                                </ul>
+                            </div>
+                        </div><!-- /.box-body -->
+                    </div><!-- /.box --><!-- /.box -->
+                </div>
+            </div>
+
+
+        </section><!-- /.content -->
+    </aside><!-- /.right-side -->
+</div><!-- ./wrapper -->
+<div id="cover" ></div>
+<div class="chakan">
+    <p id="gr"><img id="hhh" src="" style=" width:70px; height:70px; border-radius: 100%"></p>
+    <hr style="border: 3px solid #3c8dbc;" />
+    <ul id=""><li><p id="q1"></p></li>
+
+        <li><p id="q2"></p></li>
+        <li><p id="q3"></p></li>
+        <li><p id="q4"></p></li>
+        <li><p id="q5"></p></li>
+        <li><p id="q6"></p></li>
+        <li><p id="q7"></p></li>
+        <li><p id="q8"></p></li></ul><div id="qd" style="width: 55px; height: 40px;margin: auto;"><button style="background: deepskyblue; border-radius: 5px; border: 1px solid deepskyblue; color: aliceblue; margin: auto;">确定</button></div>
+
+</div>
 
 
 
-    </body>
+<script>
+    $(document).on("click",".chakan2",function () {
+        var idd=$(this).parents("tr").find("td:first").text()
+
+        $.ajax({
+            url:"selectStudent/"+idd,
+            type:'POST',
+
+
+
+            success:function (result) {
+                $("#hhh").attr("src",result.data.userIcon);
+                $("#q1").html("用户账号："+result.data.userName);
+
+                $("#q3").html("昵称："+result.data.userNickname);
+                $("#q4").html("学号："+result.data.userNumber);
+
+                $("#q6").html("创建时间："+result.data.createtime);
+                $("#q7").html("修改时间："+result.data.updatatime);
+                $("#q8").html("邮箱："+result.data.mail);
+
+
+
+
+
+            }
+
+        });
+    });
+    $(document).on("click",".jinyong",function () {
+        var jj=$(this).parents("tr").find("td:eq(3)").text()
+        var qq='禁止'
+
+
+        var gg=jj===qq?1:0
+
+
+
+        var ff=$(this).parents("tr").find("td:first").text()
+        $.ajax({
+            url:"updateStudent/",
+            type: "POST",
+            data:{
+                "ff":ff,
+                "gg":gg
+            },
+
+            success:function (result) {
+                window.location.reload();
+
+
+            }
+        });
+    })
+</script>
+</body>
 </html>

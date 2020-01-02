@@ -3,8 +3,8 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     username: root
     password: root
-#    url: jdbc:mysql://127.0.0.1/gdkm_linux?characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
-    url: jdbc:mysql://117.50.11.169/gdkm_linux?characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+    url: jdbc:mysql://127.0.0.1/gdkm_linux?characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+#    url: jdbc:mysql://117.50.11.169/gdkm_linux?characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
   jpa:
     show-sql: true
   jackson:
