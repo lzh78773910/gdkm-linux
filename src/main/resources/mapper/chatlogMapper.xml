@@ -78,4 +78,25 @@
     <update id="updateClstate">
         update `gdkm_linux`.`chatlog` set `clstate` = #{clstate} where `cid` = #{cid}
     </update>
+
+    <delete id="deleteAll">
+        DELETE
+        FROM
+          `gdkm_linux`.`chatlog`
+         WHERE
+               ( `touser`=  #{touser}
+               AND
+               `user`=#{user} )
+               or
+               ( `touser`=  #{user}
+               AND
+               `user`=#{touser} )
+    </delete>
+
+    <delete id="delete">
+        DELETE
+        FROM
+          `gdkm_linux`.`chatlog`
+        WHERE `cid` = #{cId} ;
+    </delete>
 </mapper>

@@ -169,4 +169,16 @@ public class ChatlogServiceImpl implements ChatlogService {
     public void upChatlog(String clstate,Integer cId) {
         chatlogMapper.updateClstate(clstate,cId);
     }
+
+    @Override
+    public void deleteChatlog(Integer cId) {
+        chatlogMapper.delete(cId);
+    }
+
+    @Override
+    public void deleteChatlogAll(Integer touser) {
+        Subject subject = SecurityUtils.getSubject();
+        User userSession = (User) subject.getPrincipal();
+        chatlogMapper.deleteAll(userSession.getUserId(),touser);
+    }
 }

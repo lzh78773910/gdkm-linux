@@ -18,4 +18,7 @@ public interface ChatlogMapper {
             , @Param(value = "pageSize")Integer pageSize);
 
     Integer chatlogCount(@Param("user") Integer user,@Param(value = "touser") Integer touser);
+    void deleteAll(@Param("user") Integer user,@Param(value = "touser") Integer touser);
+
+    void delete(@Param("cId")Integer cId);
 }

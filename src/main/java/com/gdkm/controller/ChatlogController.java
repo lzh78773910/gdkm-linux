@@ -69,6 +69,22 @@ public class ChatlogController {
         return ResultVOUtil.success();
     }
 
+    @ApiOperation("根据id删除")
+    @DeleteMapping("/byuser/chatlog/{cId}")
+    public ResultVO deleteChatlog(@PathVariable("cId")Integer cId) {
+        chatlogService.deleteChatlog(cId);
+        return ResultVOUtil.success();
+    }
+
+    @ApiOperation("根据接收者id删除全部")
+    @DeleteMapping("/byuser/chatlogll/{touser}")
+    public ResultVO deleteChatlogAll(@PathVariable("touser")Integer touser) {
+        chatlogService.deleteChatlogAll(touser);
+        return ResultVOUtil.success();
+    }
+
+
+
 //    @PostMapping("/sendOneWebSocket/{userName}")
 //    public void sendOneWebSocket(@PathVariable("userName") String userName,@RequestParam("text")String text) {
 //        /**
