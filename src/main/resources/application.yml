@@ -41,15 +41,6 @@ thymeleaf:
 projectUrl:
   linux: http://localhost:8888/linux
 
-
-  imgUrl: D:/linux/img/
-  shipinUrl: D:/linux/shipin/
-  kejianUrl: D:/linux/kejian/
-
-  img: /img/
-  shipin: /shipin/
-  kejian: /kejian/
-
   imgUcloud: img
   shipinUcloud: shipin
   kejianUcloud: kejian

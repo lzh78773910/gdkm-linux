@@ -2,17 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dcdd2241-e7fa-4f54-a013-f6cccfbf699f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gdkm/Repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gdkm/Repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gdkm/controller/ByAdminQuestionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gdkm/controller/ByAdminQuestionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gdkm/controller/ByAdminResourceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gdkm/controller/ByAdminResourceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gdkm/controller/ByAdminUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gdkm/controller/ByAdminUserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gdkm/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gdkm/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/admin/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/admin/add.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/user/user.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/user/user.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -204,8 +195,16 @@
       <workItem from="1578273110638" duration="2070000" />
       <workItem from="1578625402499" duration="1220000" />
       <workItem from="1578728288531" duration="150000" />
-      <workItem from="1578728466231" duration="58000" />
+      <workItem from="1578728466231" duration="694000" />
     </task>
+    <task id="LOCAL-00001" summary="Merge branch 'master' of github.com:lzh78773910/gdkm-linux&#10;&#10;# Conflicts:&#10;#&#9;src/main/java/com/gdkm/Repository/UserRepository.java&#10;#&#9;src/main/resources/templates/admin/user/user.html">
+      <created>1578728770261</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1578728770261</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -224,11 +223,19 @@
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Merge branch 'master' of github.com:lzh78773910/gdkm-linux&#10;&#10;# Conflicts:&#10;#&#9;src/main/java/com/gdkm/Repository/UserRepository.java&#10;#&#9;src/main/resources/templates/admin/user/user.html" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'master' of github.com:lzh78773910/gdkm-linux&#10;&#10;# Conflicts:&#10;#&#9;src/main/java/com/gdkm/Repository/UserRepository.java&#10;#&#9;src/main/resources/templates/admin/user/user.html" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="449" y="147" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1578057195579">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="449" y="147" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1536.834@0.0.1536.834" timestamp="1578057195579" />
+    <state x="264" y="0" key="CommitChangelistDialog2" timestamp="1578729168808">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="264" y="0" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1578729168808" />
     <state x="549" y="176" key="FileChooserDialogImpl" timestamp="1578112629782">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -241,10 +248,14 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="272" y="63" key="SettingsEditor/0.0.1536.834@0.0.1536.834" timestamp="1578728448451" />
-    <state x="471" y="220" key="git4idea.merge.GitPullDialog" timestamp="1578728617347">
+    <state x="361" y="154" key="Vcs.Push.Dialog.v2" timestamp="1578729210707">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="471" y="220" key="git4idea.merge.GitPullDialog/0.0.1536.834@0.0.1536.834" timestamp="1578728617347" />
+    <state x="361" y="154" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1578729210707" />
+    <state x="471" y="220" key="git4idea.merge.GitPullDialog" timestamp="1578728927712">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="471" y="220" key="git4idea.merge.GitPullDialog/0.0.1536.834@0.0.1536.834" timestamp="1578728927712" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
