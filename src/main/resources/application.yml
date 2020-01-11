@@ -31,7 +31,6 @@ mybatis:
   type-aliases-package: com.gdkm.model
   configuration:
     map-underscore-to-camel-case: true
-111
 server:
   context-path: /linux
   port: 8888
