@@ -1,22 +1,22 @@
 package com.gdkm.controller;
 
+import com.gdkm.Repository.UserRepository;
 import com.gdkm.model.User;
 import com.gdkm.service.UserService;
 import com.gdkm.utils.ResultVOUtil;
 import com.gdkm.vo.PageVo;
 import com.gdkm.vo.ResultVO;
 import io.swagger.annotations.ApiOperation;
-import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
+import org.springframework.test.annotation.Rollback;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import springfox.documentation.annotations.ApiIgnore;
 
-import javax.transaction.Transactional;
 import java.util.Map;
 @ApiIgnore
 @Controller
@@ -25,6 +25,30 @@ public class ByAdminUserController {
 
     @Autowired
     private UserService userService;
+    @Autowired
+    private UserRepository userRepository;
+    @ApiOperation("测试")
+    @ResponseBody
+    @RequestMapping("selectStudent/{idd}")
+    public ResultVO<User> selectStudent(@PathVariable("idd") String id){
+        User user=  userRepository.findByuserName(id);
+
+        return ResultVOUtil.success(user);
+    }
+
+
+
+    @ResponseBody
+    @RequestMapping("updateStudent/")
+    @Transactional
+    @Rollback(false)
+    public String updataOne(@RequestParam("gg")Integer gg,@RequestParam("ff")String ff){
+        userRepository.updateOne(gg,ff);
+        return null;
+    }
+
+
+
 
 
 

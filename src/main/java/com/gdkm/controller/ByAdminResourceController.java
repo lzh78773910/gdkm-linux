@@ -1,5 +1,6 @@
 package com.gdkm.controller;
 
+import com.gdkm.config.projectUrl;
 import com.gdkm.dto.ResourceDto;
 import com.gdkm.dto.ResourceTypeDto;
 import com.gdkm.model.Admin;
@@ -22,11 +23,9 @@ import org.springframework.web.servlet.ModelAndView;
 import springfox.documentation.annotations.ApiIgnore;
 
 import javax.servlet.http.HttpSession;
-import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
-import java.util.UUID;
 
 @ApiIgnore
 @Controller
@@ -40,7 +39,7 @@ public class ByAdminResourceController {
     private ResourceService resourceService;
 
     @Autowired
-    public com.gdkm.config.projectUrl projectUrl;
+    public projectUrl projectUrl ;
 
     @Autowired
     private UCloudProvider uCloudProvider;
@@ -61,7 +60,7 @@ public class ByAdminResourceController {
         map.put("resourceTypeDtoPage", resourceTypeDtoPage);
         map.put("TotalPage", resourceTypeDtoPage.getTotalPages());
 
-        return new ModelAndView("/admin/resource/type", map);
+        return new ModelAndView("admin/resource/type", map);
     }
 
     //教学资源类型更新界面

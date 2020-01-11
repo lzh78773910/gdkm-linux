@@ -1,8 +1,8 @@
 package com.gdkm.controller;
 
+import com.gdkm.config.projectUrl;
 import com.gdkm.dto.CommentDto;
 import com.gdkm.dto.QuestionDto;
-import com.gdkm.model.Admin;
 import com.gdkm.model.Question;
 import com.gdkm.service.CommentService;
 import com.gdkm.service.QuestionService;
@@ -12,12 +12,10 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Map;
 
@@ -32,7 +30,7 @@ public class ByAdminQuestionController {
     private CommentService commentService;
 
     @Autowired
-    public com.gdkm.config.projectUrl projectUrl;
+    public projectUrl projectUrl ;
 
     //问题添加页面
 //    @GetMapping("/add")
@@ -98,7 +96,7 @@ public class ByAdminQuestionController {
         map.put("questionList",questionList);
         map.put("comments",comments);
 
-        return new ModelAndView("/admin/question/detail",map);
+        return new ModelAndView("admin/question/detail",map);
     }
 
 

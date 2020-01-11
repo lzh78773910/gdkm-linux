@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<header class="header" th:fragment="headnav">
+    <a href="index.html" class="logo">
+        <!-- Add the class icon to your logo image or logo icon to add the margining -->
+        精品课程
+    </a>
+    <!-- Header Navbar: style can be found in header.less -->
+    <nav class="navbar navbar-static-top" role="navigation">
+        <!-- Sidebar toggle button-->
+        <a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </a>
+        <div class="navbar-right">
+            <ul class="nav navbar-nav">
+                <!-- Messages: style can be found in dropdown.less-->
+                <li class="dropdown messages-menu">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-envelope"></i>
+                        <span class="label label-success">4</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="header">您有4条消息</li>
+                        <li>
+                            <!-- inner menu: contains the actual data -->
+                            <ul class="menu">
+                                <li><!-- start message -->
+                                    <a href="#">
+                                        <div class="pull-left">
+                                            <img th:src="@{/AdminLTE/img/avatar3.png}" class="img-circle" alt="User Image"/>
+                                        </div>
+                                        <h4>
+                                            支持团队
+                                            <small><i class="fa fa-clock-o"></i> 5 分钟前</small>
+                                        </h4>
+                                        <p>Why not buy a new awesome theme?</p>
+                                    </a>
+                                </li><!-- end message -->
+
+                                <li>
+                                    <a href="#">
+
+                                        <h4>
+                                            开发者
+                                            <small><i class="fa fa-clock-o"></i> 今天</small>
+                                        </h4>
+                                        <p>Why not buy a new awesome theme?</p>
+                                    </a>
+                                </li>
+
+
+                            </ul>
+                        </li>
+                        <li class="footer"><a href="#">查看所有消息</a></li>
+                    </ul>
+                </li>
+                <!-- Notifications: style can be found in dropdown.less -->
+
+                <!-- Tasks: style can be found in dropdown.less -->
+
+                <!-- User Account: style can be found in dropdown.less -->
+                <li class="dropdown user user-menu">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="glyphicon glyphicon-user"></i>
+                        <span th:text="${session.admin.adminNickname}">Admin Lte <i class="caret"></i></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <!-- User image -->
+                        <li class="user-header bg-light-blue">
+                            <img th:src="@{${session.admin.adminIcon}==null ? '/AdminLTE/img/avatar3.png' : ${session.admin.adminIcon}  } " class="img-circle" alt="User Image" />
+                            <p>
+                                超级管理员
+                                <small th:text="${session.admin.createtime}">注册日期：2014-09-17</small>
+                            </p>
+                        </li>
+                        <!-- Menu Body -->
+
+                        <!-- Menu Footer-->
+                        <li class="user-footer">
+                            <div class="pull-left">
+                                <a href="#" class="btn btn-default btn-flat">个人资料</a>
+                            </div>
+                            <div class="pull-right">
+                                <a th:href="@{/byadmin/admin/logout}" class="btn btn-default btn-flat">注销登录</a>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+</html>

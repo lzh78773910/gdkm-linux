@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+<head th:replace="admin/common/head :: head"></head>
+    <body class="bg-black">
+
+        <div class="form-box" id="login-box">
+            <div class="header">注册新会员</div>
+            <form action="../../index.html" method="post">
+                <div class="body bg-gray">
+                    <div class="form-group">
+                        <input type="text" name="name" class="form-control" placeholder="昵称"/>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="userid" class="form-control" placeholder="用户ID"/>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="password" class="form-control" placeholder="密码"/>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="password2" class="form-control" placeholder="重试密码"/>
+                    </div>
+                </div>
+                <div class="footer">                    
+
+                    <button type="submit" class="btn bg-olive btn-block">立即注册</button>
+
+                    <a href="login.html" class="text-center">我已经是会员</a>
+                </div>
+            </form>
+
+            <div class="margin text-center">
+                <span>使用社交账号登陆</span>
+                <br/>
+                <button class="btn bg-light-blue btn-circle"><i class="fa fa-facebook"></i></button>
+                <button class="btn bg-aqua btn-circle"><i class="fa fa-twitter"></i></button>
+                <button class="btn bg-red btn-circle"><i class="fa fa-google-plus"></i></button>
+
+            </div>
+        </div>
+
+
+
+
+    </body>
+</html>

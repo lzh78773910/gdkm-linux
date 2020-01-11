@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.gdkm.Repository.UserRepositoryTest" time="0" tests="1" errors="1" skipped="0" failures="0">
+  <properties>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="sun.boot.library.path" value="D:\java-jdk\jdk1.8.0_231\jre\bin"/>
+    <property name="java.vm.version" value="25.231-b11"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="maven.multiModuleProjectDirectory" value="D:\linux系统\gdkm-linux"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="path.separator" value=";"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="user.script" value=""/>
+    <property name="user.country" value="CN"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="D:\linux系统\gdkm-linux"/>
+    <property name="java.runtime.version" value="1.8.0_231-b11"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="java.endorsed.dirs" value="D:\java-jdk\jdk1.8.0_231\jre\lib\endorsed"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.io.tmpdir" value="C:\Users\78773\AppData\Local\Temp\"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.variant" value=""/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="maven.ext.class.path" value="D:\IntelliJ IDEA 2019.2\plugins\maven\lib\maven-event-listener.jar"/>
+    <property name="classworlds.conf" value="E:\apache-maven-3.3.9\bin\m2.conf"/>
+    <property name="sun.jnu.encoding" value="GBK"/>
+    <property name="java.library.path" value="D:\java-jdk\jdk1.8.0_231\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;D:\IntelliJ IDEA 2019.2\jbr\\bin;D:\IntelliJ IDEA 2019.2\jbr\\bin\server;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\iCLS\;C:\Program Files\Intel\Intel(R) Management Engine Components\iCLS\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;D:\nodejs\;D:\mysql-5.7.17-winx64\bin\;&quot;D:\java-jdk\jdk1.8.0_231\bin;D:\java-jdk\jdk1.8.0_231\jre\bin;&quot;;D:\newGit\cmd;C:\Users\78773\AppData\Local\Microsoft\WindowsApps;C:\Users\78773\AppData\Roaming\npm;D:\Bandizip\;."/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.class.version" value="52.0"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="10.0"/>
+    <property name="user.home" value="C:\Users\78773"/>
+    <property name="user.timezone" value="Asia/Shanghai"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="user.name" value="78773"/>
+    <property name="java.class.path" value="E:\apache-maven-3.3.9\boot\plexus-classworlds-2.5.2.jar;D:\IntelliJ IDEA 2019.2\lib\idea_rt.jar"/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.home" value="D:\java-jdk\jdk1.8.0_231\jre"/>
+    <property name="sun.java.command" value="org.codehaus.classworlds.Launcher -Didea.version2019.2 -s E:\apache-maven-3.3.9\conf\settings.xml package"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.language" value="zh"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="1.8.0_231"/>
+    <property name="java.ext.dirs" value="D:\java-jdk\jdk1.8.0_231\jre\lib\ext;C:\WINDOWS\Sun\Java\lib\ext"/>
+    <property name="sun.boot.class.path" value="D:\java-jdk\jdk1.8.0_231\jre\lib\resources.jar;D:\java-jdk\jdk1.8.0_231\jre\lib\rt.jar;D:\java-jdk\jdk1.8.0_231\jre\lib\sunrsasign.jar;D:\java-jdk\jdk1.8.0_231\jre\lib\jsse.jar;D:\java-jdk\jdk1.8.0_231\jre\lib\jce.jar;D:\java-jdk\jdk1.8.0_231\jre\lib\charsets.jar;D:\java-jdk\jdk1.8.0_231\jre\lib\jfr.jar;D:\java-jdk\jdk1.8.0_231\jre\classes"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="maven.home" value="E:\apache-maven-3.3.9"/>
+    <property name="file.separator" value="\"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="idea.version2019.2" value="true"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.desktop" value="windows"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+  </properties>
+  <testcase name="findone" classname="com.gdkm.Repository.UserRepositoryTest" time="0">
+    <error message="Failed to load ApplicationContext" type="java.lang.IllegalStateException">java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:124)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:83)
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:189)
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:131)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:230)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:228)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:287)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:289)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:247)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:94)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:191)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:283)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:173)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:153)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:128)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:203)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:155)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:103)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'serverEndpointExporter' defined in class path resource [com/gdkm/config/WebSocketConfig.class]: Invocation of init method failed; nested exception is java.lang.IllegalStateException: javax.websocket.server.ServerContainer not available
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1628)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:555)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:761)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:866)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:542)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:737)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:370)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:314)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:120)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:98)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:116)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:83)
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:189)
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:131)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:230)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:228)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:287)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:289)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:247)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:94)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:191)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:283)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:173)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:153)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:128)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:203)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:155)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:103)
+Caused by: java.lang.IllegalStateException: javax.websocket.server.ServerContainer not available
+	at org.springframework.util.Assert.state(Assert.java:70)
+	at org.springframework.web.socket.server.standard.ServerEndpointExporter.afterPropertiesSet(ServerEndpointExporter.java:102)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1687)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1624)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:555)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:761)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:866)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:542)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:737)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:370)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:314)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:120)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:98)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:116)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:83)
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:189)
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:131)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:230)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:228)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:287)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:289)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:247)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:94)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:191)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:283)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:173)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:153)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:128)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:203)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:155)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:103)
+</error>
+    <system-out><![CDATA[2019-12-28 12:29:37.862 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.gdkm.Repository.UserRepositoryTest], using SpringBootContextLoader
+2019-12-28 12:29:37.862 [main] INFO  o.s.t.c.s.AbstractContextLoader - Could not detect default resource locations for test class [com.gdkm.Repository.UserRepositoryTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2019-12-28 12:29:37.862 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.gdkm.Repository.UserRepositoryTest]: UserRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2019-12-28 12:29:37.865 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.gdkm.LinuxApplication for test class com.gdkm.Repository.UserRepositoryTest
+2019-12-28 12:29:37.866 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2019-12-28 12:29:37.868 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@4f488f4c, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@6376534c, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@5b4999f8, org.springframework.test.context.support.DirtiesContextTestExecutionListener@6fab92d8, org.springframework.test.context.transaction.TransactionalTestExecutionListener@6492428e, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@352f9163, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@22be4867, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@11b023ba, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@67c09530, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@2e2da422, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@7e003cf0, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@6e3d6d79]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v1.5.3.RELEASE)
+
+2019-12-28 12:29:37.912 [main] INFO  c.g.R.UserRepositoryTest - Starting UserRepositoryTest on DESKTOP-6E8KKFO with PID 232 (started by 78773 in D:\linuxϵͳ\gdkm-linux)
+2019-12-28 12:29:37.912 [main] INFO  c.g.R.UserRepositoryTest - No active profile set, falling back to default profiles: default
+2019-12-28 12:29:37.915 [main] INFO  o.s.w.c.s.GenericWebApplicationContext - Refreshing org.springframework.web.context.support.GenericWebApplicationContext@56b3dcff: startup date [Sat Dec 28 12:29:37 CST 2019]; root of context hierarchy
+2019-12-28 12:29:38.385 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-12-28 12:29:38.488 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-12-28 12:29:38.529 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.gdkm.Repository.CourseCommentReposiyory.
+2019-12-28 12:29:38.529 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.gdkm.Repository.LabelTitleRepostory.
+2019-12-28 12:29:38.529 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.gdkm.Repository.HomeLebelRepostory.
+2019-12-28 12:29:38.529 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.gdkm.Repository.ChatlogRepository.
+2019-12-28 12:29:38.530 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.gdkm.Repository.ResourceRepository.
+2019-12-28 12:29:38.530 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.gdkm.Repository.UserRoleRepository.
+2019-12-28 12:29:38.530 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.gdkm.Repository.AdminRepository.
+2019-12-28 12:29:38.530 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.gdkm.Repository.ResourceTypeRepository.
+2019-12-28 12:29:38.530 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.gdkm.Repository.UserRepository.
+2019-12-28 12:29:38.530 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.gdkm.Repository.RoleRepository.
+2019-12-28 12:29:38.531 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.gdkm.Repository.CommentRepository.
+2019-12-28 12:29:38.531 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.gdkm.Repository.TotalVisitsRepostory.
+2019-12-28 12:29:38.531 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.gdkm.Repository.VideoRepository.
+2019-12-28 12:29:38.531 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.gdkm.Repository.VideoItemRepository.
+2019-12-28 12:29:38.531 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.gdkm.Repository.QuestionRepository.
+2019-12-28 12:29:38.548 [main] WARN  o.s.c.a.ConfigurationClassPostProcessor - Cannot enhance @Configuration bean definition 'propertySourcesPlaceholderConfigurer' since its singleton instance has been created too early. The typical cause is a non-static @Bean method with a BeanDefinitionRegistryPostProcessor return type: Consider declaring such methods as 'static'.
+2019-12-28 12:29:38.604 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$f57e445d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-28 12:29:38.614 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'shiroConfig' of type [com.gdkm.shiro.ShiroConfig$$EnhancerBySpringCGLIB$$a73b1816] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-28 12:29:38.633 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean '(inner bean)#7783661c' of type [org.springframework.beans.factory.config.PropertiesFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-28 12:29:38.633 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean '(inner bean)#7783661c' of type [java.util.Properties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-28 12:29:38.637 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean '(inner bean)#570903bd' of type [org.springframework.data.repository.core.support.PropertiesBasedNamedQueries] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-28 12:29:38.638 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean '(inner bean)#65cf3c52' of type [org.springframework.data.repository.query.ExtensionAwareEvaluationContextProvider] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-28 12:29:38.641 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Tomcat' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Tomcat] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-28 12:29:38.660 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'spring.datasource-org.springframework.boot.autoconfigure.jdbc.DataSourceProperties' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-28 12:29:38.700 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'dataSource' of type [org.apache.tomcat.jdbc.pool.DataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-28 12:29:38.702 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration$$EnhancerBySpringCGLIB$$d771e7bd] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-28 12:29:38.772 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'dataSourceInitializer' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceInitializer] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-28 12:29:38.777 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'spring.jpa-org.springframework.boot.autoconfigure.orm.jpa.JpaProperties' of type [org.springframework.boot.autoconfigure.orm.jpa.JpaProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-28 12:29:38.782 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration' of type [org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration$$EnhancerBySpringCGLIB$$89f23f67] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-28 12:29:38.787 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'spring.transaction-org.springframework.boot.autoconfigure.transaction.TransactionProperties' of type [org.springframework.boot.autoconfigure.transaction.TransactionProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-28 12:29:38.788 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'platformTransactionManagerCustomizers' of type [org.springframework.boot.autoconfigure.transaction.TransactionManagerCustomizers] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-28 12:29:38.790 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration' of type [org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration$$EnhancerBySpringCGLIB$$5f04a87d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-28 12:29:38.830 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'jpaVendorAdapter' of type [org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-28 12:29:38.832 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'entityManagerFactoryBuilder' of type [org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-28 12:29:38.861 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+2019-12-28 12:29:38.861 [main] INFO  o.h.j.i.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-12-28 12:29:38.866 [main] INFO  o.h.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-12-28 12:29:38.970 [main] INFO  o.h.tuple.PojoInstantiator - HHH000182: No default (no-argument) constructor for class: com.gdkm.model.TotalVisits (class must be instantiated by Interceptor)
+2019-12-28 12:29:38.986 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-12-28 12:29:38.986 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'entityManagerFactory' of type [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-28 12:29:38.989 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'entityManagerFactory' of type [com.sun.proxy.$Proxy102] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-28 12:29:38.993 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean '(inner bean)#4865a49f' of type [com.sun.proxy.$Proxy104] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-28 12:29:39.012 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'jpaMappingContext' of type [org.springframework.data.jpa.repository.config.JpaMetamodelMappingContextFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-28 12:29:39.014 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'jpaMappingContext' of type [org.springframework.data.jpa.mapping.JpaMetamodelMappingContext] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-28 12:29:39.019 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'userRepository' of type [org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-28 12:29:39.020 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'userRepository' of type [com.sun.proxy.$Proxy106] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-28 12:29:39.025 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'loginRealm' of type [com.gdkm.shiro.LoginRealm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-28 12:29:39.031 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'securityManager' of type [org.apache.shiro.web.mgt.DefaultWebSecurityManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-28 12:29:39.037 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'shiroRoleFilter' of type [com.gdkm.shiro.filter.ShiroRoleFilter] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-28 12:29:39.040 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'shiroLoginFilter' of type [com.gdkm.shiro.filter.ShiroLoginFilter] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-28 12:29:39.596 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/byadmin/admin/add],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.gdkm.controller.ByAdminAdminController.add(javax.servlet.http.HttpSession,java.util.Map)
+2019-12-28 12:29:39.596 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/byadmin/admin/logout],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.gdkm.controller.ByAdminAdminController.logout(javax.servlet.http.HttpSession)
+2019-12-28 12:29:39.596 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/byadmin/admin/login],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.gdkm.controller.ByAdminAdminController.login()
+2019-12-28 12:29:39.597 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/byadmin/admin/loginPost],methods=[POST]}" onto public com.gdkm.utils.AjaxResult com.gdkm.controller.ByAdminAdminController.loginPost(java.lang.String,java.lang.String,javax.servlet.http.HttpSession,java.util.Map)
+2019-12-28 12:29:39.597 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/byadmin/admin/updata],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.gdkm.controller.ByAdminAdminController.updata(javax.servlet.http.HttpSession,java.util.Map)
+2019-12-28 12:29:39.598 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/byadmin/admin/main],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.gdkm.controller.ByAdminAdminController.mian(javax.servlet.http.HttpSession,java.util.Map)
+2019-12-28 12:29:39.598 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/byadmin/admin/uploadfile],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView com.gdkm.controller.ByAdminAdminController.uploadfile(java.lang.String,org.springframework.web.multipart.MultipartFile,java.util.Map,javax.servlet.http.HttpSession) throws java.io.IOException
+2019-12-28 12:29:39.599 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/byadmin/admin/addPost],methods=[POST]}" onto public com.gdkm.utils.AjaxResult com.gdkm.controller.ByAdminAdminController.addPost(com.gdkm.model.Admin)
+2019-12-28 12:29:39.599 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/byadmin/admin/updataPost],methods=[POST]}" onto public com.gdkm.utils.AjaxResult com.gdkm.controller.ByAdminAdminController.updatado(java.lang.String,java.lang.String,java.lang.String,javax.servlet.http.HttpSession)
+2019-12-28 12:29:39.599 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/byadmin/questionComment/add],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.gdkm.controller.ByAdminCommentController.commentView()
+2019-12-28 12:29:39.599 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/byadmin/coursecomment/update],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView com.gdkm.controller.ByAdminCourseCommentController.update(java.lang.Integer,java.lang.Integer,java.lang.String,javax.servlet.http.HttpSession)
+2019-12-28 12:29:39.600 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/byadmin/coursecomment/list],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.gdkm.controller.ByAdminCourseCommentController.list(java.lang.Integer,java.lang.Integer,java.util.Map)
+2019-12-28 12:29:39.600 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/file/upload]}" onto public com.gdkm.dto.FileDTO com.gdkm.controller.ByAdminFileController.upload(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,org.springframework.web.multipart.MultipartFile)
+2019-12-28 12:29:39.601 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/byadmin/comment/commentDetail/{cId}],methods=[GET]}" onto public com.gdkm.vo.ResultVO<java.util.List<com.gdkm.dto.CommentDto>> com.gdkm.controller.ByAdminQuestionCommentController.comments(java.lang.Integer)
+2019-12-28 12:29:39.602 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/byadmin/comment/addComment],methods=[POST]}" onto public com.gdkm.vo.ResultVO com.gdkm.controller.ByAdminQuestionCommentController.addComment(com.gdkm.dto.CommentDto,javax.servlet.http.HttpSession)
+2019-12-28 12:29:39.602 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/byadmin/question/deleteQuestion],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.gdkm.controller.ByAdminQuestionController.deleteQuestion(java.lang.Integer)
+2019-12-28 12:29:39.602 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/byadmin/question/list],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.gdkm.controller.ByAdminQuestionController.showSortPage(java.lang.String,java.lang.Integer,java.lang.Integer,java.util.Map)
+2019-12-28 12:29:39.603 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/byadmin/question/detail],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.gdkm.controller.ByAdminQuestionController.showQuestionDetail(java.lang.Integer,java.util.Map)
+2019-12-28 12:29:39.604 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/byadmin/resource/file],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.gdkm.controller.ByAdminResourceController.add(java.util.Map)
+2019-12-28 12:29:39.604 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/byadmin/resource/update],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.gdkm.controller.ByAdminResourceController.update(java.lang.Integer,java.util.Map)
+2019-12-28 12:29:39.604 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/byadmin/resource/addType],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView com.gdkm.controller.ByAdminResourceController.addType(java.lang.String)
+2019-12-28 12:29:39.604 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/byadmin/resource/updateResource],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView com.gdkm.controller.ByAdminResourceController.updateResource(java.lang.Integer,java.lang.String,java.lang.String,org.springframework.web.multipart.MultipartFile,java.lang.Integer) throws java.io.IOException
+2019-12-28 12:29:39.604 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/byadmin/resource/delete],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.gdkm.controller.ByAdminResourceController.deleteResource(java.lang.Integer,java.lang.String,java.lang.Integer,java.lang.Integer,java.util.Map)
+2019-12-28 12:29:39.604 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/byadmin/resource/addtype],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.gdkm.controller.ByAdminResourceController.addTypeView()
+2019-12-28 12:29:39.604 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/byadmin/resource/updateRT],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView com.gdkm.controller.ByAdminResourceController.updateRT(java.lang.String,java.lang.Integer)
+2019-12-28 12:29:39.604 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/byadmin/resource/deleteResType],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.gdkm.controller.ByAdminResourceController.deleteResType(java.lang.Integer)
+2019-12-28 12:29:39.605 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/byadmin/resource/type],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.gdkm.controller.ByAdminResourceController.queryType(java.lang.String,java.lang.Integer,java.lang.Integer,java.util.Map)
+2019-12-28 12:29:39.605 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/byadmin/resource/updateResType],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.gdkm.controller.ByAdminResourceController.updateType(java.lang.Integer,java.util.Map)
+2019-12-28 12:29:39.605 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/byadmin/resource/addFile],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView com.gdkm.controller.ByAdminResourceController.addFile(java.lang.String,java.lang.String,org.springframework.web.multipart.MultipartFile,java.lang.Integer,javax.servlet.http.HttpSession) throws java.io.IOException
+2019-12-28 12:29:39.605 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/byadmin/resource/list],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.gdkm.controller.ByAdminResourceController.listView(java.lang.String,java.lang.Integer,java.lang.Integer,java.util.Map)
+2019-12-28 12:29:39.605 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/byadmin/user/lists],methods=[GET]}" onto public com.gdkm.vo.ResultVO com.gdkm.controller.ByAdminUserController.list(java.lang.Integer,java.lang.Integer)
+2019-12-28 12:29:39.605 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/byadmin/user/list],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.gdkm.controller.ByAdminUserController.user(java.lang.Integer,java.lang.Integer,java.util.Map)
+2019-12-28 12:29:39.609 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/byadmin/video/main],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.gdkm.controller.ByAdminVideoController.main(java.lang.String,java.lang.Integer,java.lang.Integer,java.util.Map)
+2019-12-28 12:29:39.610 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/byadmin/video/add],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.gdkm.controller.ByAdminVideoController.add()
+2019-12-28 12:29:39.610 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/byadmin/video/update],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.gdkm.controller.ByAdminVideoController.update(java.lang.Integer,java.util.Map)
+2019-12-28 12:29:39.610 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/byadmin/video/delete],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.gdkm.controller.ByAdminVideoController.delete(java.lang.String,java.lang.Integer,java.lang.Integer,java.lang.Integer,java.util.Map)
+2019-12-28 12:29:39.610 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/byadmin/video/one],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.gdkm.controller.ByAdminVideoController.one(java.lang.Integer,java.lang.Integer,java.util.Map)
+2019-12-28 12:29:39.610 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/byadmin/video/additem],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView com.gdkm.controller.ByAdminVideoController.additem(java.lang.Integer,java.lang.String,org.springframework.web.multipart.MultipartFile,java.util.Map) throws java.io.IOException
+2019-12-28 12:29:39.610 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/byadmin/video/download]}" onto public void com.gdkm.controller.ByAdminVideoController.download(java.lang.String) throws java.io.IOException
+2019-12-28 12:29:39.610 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/byadmin/video/addVideo],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView com.gdkm.controller.ByAdminVideoController.addVideo(java.lang.String,java.lang.String,org.springframework.web.multipart.MultipartFile,org.springframework.web.multipart.MultipartFile,java.util.Map,javax.servlet.http.HttpSession) throws java.io.IOException
+2019-12-28 12:29:39.610 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/byadmin/video/updateVideo],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView com.gdkm.controller.ByAdminVideoController.updateVideo(java.lang.Integer,java.lang.String,java.lang.String,org.springframework.web.multipart.MultipartFile,org.springframework.web.multipart.MultipartFile,java.util.Map,javax.servlet.http.HttpSession) throws java.io.IOException
+2019-12-28 12:29:39.611 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/logout/{userId}],methods=[POST]}" onto public com.gdkm.vo.ResultVO com.gdkm.controller.ByUserLoginController.logout(java.lang.Integer)
+2019-12-28 12:29:39.611 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/login],methods=[POST]}" onto public com.gdkm.vo.ResultVO com.gdkm.controller.ByUserLoginController.loginPost(java.lang.String,java.lang.String)
+2019-12-28 12:29:39.611 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/appusers],methods=[GET]}" onto public com.gdkm.vo.ResultVO com.gdkm.controller.ByUserLoginController.app()
+2019-12-28 12:29:39.611 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/byuser/chatlog/{touser}],methods=[POST]}" onto public void com.gdkm.controller.ChatlogController.add(java.lang.Integer,java.lang.String)
+2019-12-28 12:29:39.611 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/byuser/chatlog/{touser}],methods=[GET]}" onto public com.gdkm.vo.ResultVO com.gdkm.controller.ChatlogController.app(java.lang.Integer)
+2019-12-28 12:29:39.611 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/byuser/chatlog/{touser}/{currentPage}/{pageSize}],methods=[GET]}" onto public com.gdkm.vo.ResultVO com.gdkm.controller.ChatlogController.chatlogPage(java.lang.Integer,java.lang.Integer,java.lang.Integer)
+2019-12-28 12:29:39.611 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/byuser/chatlog/{cId}],methods=[PUT]}" onto public com.gdkm.vo.ResultVO com.gdkm.controller.ChatlogController.chatlogPage(java.lang.Integer)
+2019-12-28 12:29:39.612 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/byuser/comment],methods=[POST]}" onto public com.gdkm.vo.ResultVO com.gdkm.controller.CourseCommentController.add(java.lang.Integer,java.lang.String)
+2019-12-28 12:29:39.612 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/byuser/comment/{id}],methods=[DELETE]}" onto public com.gdkm.vo.ResultVO com.gdkm.controller.CourseCommentController.delete(java.lang.Integer)
+2019-12-28 12:29:39.612 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/comment/{currentPage}/{pageSize}],methods=[GET]}" onto public com.gdkm.vo.ResultVO com.gdkm.controller.CourseCommentController.commentList(java.lang.Integer,java.lang.Integer)
+2019-12-28 12:29:39.612 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/byuser/comment/{currentPage}/{pageSize}],methods=[GET]}" onto public com.gdkm.vo.ResultVO com.gdkm.controller.CourseCommentController.myCommentList(java.lang.Integer,java.lang.Integer)
+2019-12-28 12:29:39.613 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/home/ totalcout],methods=[GET]}" onto public com.gdkm.vo.ResultVO com.gdkm.controller.HomeController.totalcout()
+2019-12-28 12:29:39.613 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/home/label],methods=[GET]}" onto public java.util.List<com.gdkm.vo.LabelVO> com.gdkm.controller.HomeController.Label()
+2019-12-28 12:29:39.613 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/home/cout],methods=[GET]}" onto public com.gdkm.vo.ResultVO com.gdkm.controller.HomeController.cout()
+2019-12-28 12:29:39.613 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/byuser/addCommentByUser],methods=[POST]}" onto public com.gdkm.vo.ResultVO com.gdkm.controller.QuestionController.addCommentByUser(com.gdkm.dto.CommentDto)
+2019-12-28 12:29:39.613 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/byuser/question/{qId}],methods=[DELETE]}" onto public com.gdkm.vo.ResultVO com.gdkm.controller.QuestionController.deleteQuestion(java.lang.Integer)
+2019-12-28 12:29:39.613 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/question/{page}/{size}],methods=[GET]}" onto public com.gdkm.vo.ResultVO com.gdkm.controller.QuestionController.showSortPage(java.lang.Integer,java.lang.Integer)
+2019-12-28 12:29:39.613 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/byuser/question],methods=[POST]}" onto public com.gdkm.vo.ResultVO com.gdkm.controller.QuestionController.addQuestion(java.lang.String,java.lang.String)
+2019-12-28 12:29:39.613 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/comment/{qId}],methods=[GET]}" onto public com.gdkm.vo.ResultVO com.gdkm.controller.QuestionController.showSortComment(java.lang.Integer)
+2019-12-28 12:29:39.614 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/user],methods=[POST]}" onto public com.gdkm.vo.ResultVO com.gdkm.controller.UserController.register(com.gdkm.vo.from.RegisterVo,javax.servlet.http.HttpServletRequest) throws java.io.IOException
+2019-12-28 12:29:39.614 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/byuser/user],methods=[PUT]}" onto public com.gdkm.vo.ResultVO com.gdkm.controller.UserController.updateUser(java.lang.String,java.lang.String)
+2019-12-28 12:29:39.614 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/user/mail],methods=[PUT]}" onto public com.gdkm.vo.ResultVO com.gdkm.controller.UserController.retrievePassword(java.lang.String,java.lang.String,java.lang.String)
+2019-12-28 12:29:39.614 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/byuser/user/pass],methods=[PUT]}" onto public com.gdkm.vo.ResultVO com.gdkm.controller.UserController.changePassword(java.lang.String,java.lang.String)
+2019-12-28 12:29:39.614 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/user/{userId}],methods=[GET]}" onto public com.gdkm.vo.ResultVO com.gdkm.controller.UserController.select(java.lang.Integer)
+2019-12-28 12:29:39.614 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/user/icon3/xiazai],methods=[GET]}" onto public com.gdkm.vo.ResultVO com.gdkm.controller.UserController.icon3()
+2019-12-28 12:29:39.614 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/user/mail],methods=[POST]}" onto public com.gdkm.vo.ResultVO com.gdkm.controller.UserController.sendMail(java.lang.String,javax.servlet.http.HttpServletResponse)
+2019-12-28 12:29:39.615 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/user/icon2],methods=[POST]}" onto public com.gdkm.vo.ResultVO com.gdkm.controller.UserController.icon1(org.springframework.web.multipart.MultipartFile) throws java.io.IOException
+2019-12-28 12:29:39.615 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/byuser/user/icon],methods=[POST]}" onto public com.gdkm.vo.ResultVO com.gdkm.controller.UserController.icon(org.springframework.web.multipart.MultipartFile) throws java.io.IOException
+2019-12-28 12:29:39.615 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/swagger-resources/configuration/security]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.SecurityConfiguration> springfox.documentation.swagger.web.ApiResourceController.securityConfiguration()
+2019-12-28 12:29:39.615 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/swagger-resources/configuration/ui]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.UiConfiguration> springfox.documentation.swagger.web.ApiResourceController.uiConfiguration()
+2019-12-28 12:29:39.615 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/swagger-resources]}" onto public org.springframework.http.ResponseEntity<java.util.List<springfox.documentation.swagger.web.SwaggerResource>> springfox.documentation.swagger.web.ApiResourceController.swaggerResources()
+2019-12-28 12:29:39.616 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2019-12-28 12:29:39.616 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2019-12-28 12:29:39.718 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2019-12-28 12:29:39.723 [main] WARN  o.s.w.c.s.GenericWebApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'serverEndpointExporter' defined in class path resource [com/gdkm/config/WebSocketConfig.class]: Invocation of init method failed; nested exception is java.lang.IllegalStateException: javax.websocket.server.ServerContainer not available
+2019-12-28 12:29:39.726 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-12-28 12:29:39.730 [main] INFO  o.s.b.a.l.AutoConfigurationReportLoggingInitializer - 
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+2019-12-28 12:29:39.732 [main] ERROR o.s.boot.SpringApplication - Application startup failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'serverEndpointExporter' defined in class path resource [com/gdkm/config/WebSocketConfig.class]: Invocation of init method failed; nested exception is java.lang.IllegalStateException: javax.websocket.server.ServerContainer not available
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1628)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:555)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:761)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:866)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:542)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:737)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:370)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:314)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:120)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:98)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:116)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:83)
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:189)
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:131)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:230)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:228)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:287)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:289)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:247)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:94)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:191)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:283)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:173)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:153)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:128)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:203)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:155)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:103)
+Caused by: java.lang.IllegalStateException: javax.websocket.server.ServerContainer not available
+	at org.springframework.util.Assert.state(Assert.java:70)
+	at org.springframework.web.socket.server.standard.ServerEndpointExporter.afterPropertiesSet(ServerEndpointExporter.java:102)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1687)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1624)
+	... 41 common frames omitted
+2019-12-28 12:29:39.732 [main] ERROR o.s.t.c.TestContextManager - Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@4f488f4c] to prepare test instance [com.gdkm.Repository.UserRepositoryTest@3e74da1f]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:124)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:83)
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:189)
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:131)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:230)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:228)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:287)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:289)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:247)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:94)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:191)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:283)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:173)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:153)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:128)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:203)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:155)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:103)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'serverEndpointExporter' defined in class path resource [com/gdkm/config/WebSocketConfig.class]: Invocation of init method failed; nested exception is java.lang.IllegalStateException: javax.websocket.server.ServerContainer not available
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1628)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:555)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:761)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:866)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:542)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:737)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:370)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:314)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:120)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:98)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:116)
+	... 26 common frames omitted
+Caused by: java.lang.IllegalStateException: javax.websocket.server.ServerContainer not available
+	at org.springframework.util.Assert.state(Assert.java:70)
+	at org.springframework.web.socket.server.standard.ServerEndpointExporter.afterPropertiesSet(ServerEndpointExporter.java:102)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1687)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1624)
+	... 41 common frames omitted
+]]></system-out>
+  </testcase>
+</testsuite>

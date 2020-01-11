@@ -79,7 +79,7 @@ public class UserServiceImpl implements UserService {
         User user=new User();
         BeanUtils.copyProperties(registerVo,user);
         user.setRoleId(1);
-        user.setUserIcon(projectUrl.getImg()+"icon.jpg");
+        user.setUserIcon("http://gdkmlzh.cn-gd.ufileos.com/img%2F1babfd38-3555-4111-a3b7-fb3609ad445dname5ac6c005-c970-4292-abcc-ea5c839eb1bc.jpg?UCloudPublicKey=TOKEN_0c9d0118-e892-4784-8702-34bf5b992604&Signature=J4ZTJjiUHlS76ktuKjGFW3uWGxs%3D&Expires=1892595175");
         String userPass = new Md5Hash(user.getUserPass(),user.getUserName(),3).toString();
         user.setUserPass(userPass);
         User save = repository.save(user);
