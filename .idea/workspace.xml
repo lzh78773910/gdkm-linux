@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dcdd2241-e7fa-4f54-a013-f6cccfbf699f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -130,9 +129,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.UCloudProvider" />
+        <item itemvalue="Application.Test" />
         <item itemvalue="Application.MD5Util" />
         <item itemvalue="Application.ChatlogController" />
-        <item itemvalue="Application.Test" />
         <item itemvalue="Application.UCloudProvider" />
       </list>
     </recent_temporary>
@@ -232,10 +232,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="449" y="147" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1536.834@0.0.1536.834" timestamp="1578057195579" />
-    <state x="264" y="0" key="CommitChangelistDialog2" timestamp="1578729168808">
+    <state x="264" y="0" key="CommitChangelistDialog2" timestamp="1578729893656">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="264" y="0" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1578729168808" />
+    <state x="264" y="0" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1578729893656" />
     <state x="549" y="176" key="FileChooserDialogImpl" timestamp="1578112629782">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
