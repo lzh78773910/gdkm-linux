@@ -1,3 +1,5 @@
 # gdkm-linux
 linux精品课程
-Spring Boot1.5.x的后台权限管理系统，项目采用SpringBoot开发，是本人的springboot练手项目
+Spring Boot1.5.x的开发的接口，项目采用SpringBoot开发，是本人的springboot练手项目
+模块说明：
+Linux精品课程精品课程网站包括后台系统与用户界面，后台包括用户管理模块，视频模块、课程评论回复、课程互动查看、教学资源的管理，用户界面包括注册登陆、资源查看、下载、教学反馈、课后讨论
